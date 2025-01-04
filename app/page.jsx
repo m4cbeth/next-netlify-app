@@ -17,10 +17,10 @@ export default function Page({ children }) {
             <div className="TOPBAR container flex flex-row justify-between mx-auto px-4 h-auto">
                 <div>
                     <h1 data-aos="fade-down" className="text-9xl mb-0 font-bold">
-                        Hi!
+                        <span>Hi!</span>
                     </h1>
                     <h2 data-aos="fade-left" className="text-4xl font-black">
-                        I'm Jaren
+                        <span>I'm Jaren</span>
                     </h2>
                 </div>
                 <SynthGradCard />
