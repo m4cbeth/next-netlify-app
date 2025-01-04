@@ -1,5 +1,4 @@
-// import Sidenav from 'components/sidenav';
-
+import Sidenav from 'components/sidenav';
 import { FaCog } from "react-icons/fa";
 import '../styles/globals.css'
 
@@ -13,7 +12,7 @@ export default function RootLayout({ children }) {
                 <main className='flex flex-col h-full w-full'>
                     <div className="CONTAINER flex flex-row flex-1">
                         <div className="SIDEBAR flex flex-col justify-between w-16 bg-slate-950 px-5">
-                            {/* <Sidenav /> */}
+                            <Sidenav />
                             <div className='flex flex-row align-middle justify-center p-2 mb-3 relative'>
                                 <FaCog className='absolute top-[-10px]' size={25}/>
                             </div>
