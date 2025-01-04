@@ -3,9 +3,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import Image from 'next/image';
-import { Card } from 'components/card';
-import { TextGenerateEffect as TylerText } from '@/components/ui/text-generate-effect';
-
 
 export default function Page({ children }) {
     useEffect(() => {
@@ -17,18 +14,18 @@ export default function Page({ children }) {
     }, []);
     return (
         <div className="container flex flex-col">
-            <div className="TOPBAR container flex flex-row justify-between mx-auto px-4">
+            <div className="TOPBAR container flex flex-row justify-between mx-auto px-4 h-auto">
                 <div>
-                    <h1 data-aos="fade-right" className="text-9xl mb-0 font-bold">
+                    <h1 data-aos="fade-down" className="text-9xl mb-0 font-bold">
                         Hi!
                     </h1>
                     <h2 data-aos="fade-left" className="text-4xl font-black">
                         I'm Jaren
                     </h2>
                 </div>
-                <Card />
+                <SynthGradCard />
                 <div>
-                    <Image width="200" height="200" src="/images/jaren.jpg" alt="Jaren" className="rounded-full" />
+                    <Image data-aos="fade-up" width="200" height="200" src="/images/jaren.jpg" alt="Jaren" className="rounded-full" />
                 </div>
             </div>
             <section>
@@ -48,3 +45,21 @@ export default function Page({ children }) {
         </div>
     )
 }
+
+
+
+const SynthGradCard = () => {
+    return (
+    <div
+        style={{
+            border: '10px solid transparent',
+            borderRadius: '20px',
+            borderImage: 'linear-gradient(51deg, rgba(10,142,86,1) 0%, rgba(53,9,121,1) 31%, rgba(176,5,179,1) 63%, rgba(0,212,255,1) 100%)',
+            borderImageSlice: 1,
+        }}
+        className="p-6 mx-16 flex-1"
+    >
+        Content with gradient border
+      </div>
+    );
+  };

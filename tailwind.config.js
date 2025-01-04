@@ -41,7 +41,9 @@ module.exports = {
     content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
     theme: {
     	extend: {
-    		backgroundImage: {},
+    		backgroundImage: {
+                'synth-gradient': 'linear-gradient(51deg, rgba(10,142,86,1) 0%, rgba(53,9,121,1) 31%, rgba(176,5,179,1) 63%, rgba(0,212,255,1) 100%)',
+            },
     		colors: {
     			neutral: 'colors.neutral'
     		},
