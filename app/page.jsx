@@ -1,12 +1,15 @@
 import Link from 'next/link';
 import { Card } from 'components/card';
+import { CardsGrid } from 'components/cards-grid';
 import { RandomQuote } from 'components/random-quote';
 import { Markdown } from 'components/markdown';
 import { ContextAlert } from 'components/context-alert';
 import { getNetlifyContext } from 'utils';
 
 const cards = [
-    //{ text: 'Hello', linkText: 'someLink', href: '/' }
+    { text: 'Hello', linkText: 'someLink', href: '/' },
+    { text: 'Goodbye', linkText: 'Fairwell', href: '/jaren' },
+    { text: 'Auf', linkText: 'weider', href: '/sehen' },
 ];
 
 const contextExplainer = `
@@ -52,7 +55,7 @@ export default function Page() {
                 <RandomQuote />
                 <Markdown content={postDynamicContentExplainer} />
             </section>
-            {/* !!cards?.length && <CardsGrid cards={cards} /> */}
+            {!!cards?.length && <CardsGrid cards={cards} />}
         </main>
     );
 }

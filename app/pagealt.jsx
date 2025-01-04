@@ -1,4 +1,3 @@
-
 export default async function Page() { 
     
     return (
@@ -7,6 +6,4 @@ export default async function Page() {
             <p>Welkom op de pagina van Jaren</p>
         </>
     )
-
-
 }

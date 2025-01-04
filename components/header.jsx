@@ -15,12 +15,12 @@ const navItems = [
 
 export function Header() {
     return (
-        <nav className="flex flex-wrap items-center gap-4 pt-6 pb-12 sm:pt-12 md:pb-24">
+        <nav className="flex flex-col items-center gap-4 pt-6 pb-12 sm:pt-12 md:pb-24">
             <Link href="/">
                 <Image src={netlifyLogo} alt="Netlify logo" />
             </Link>
             {!!navItems?.length && (
-                <ul className="flex flex-wrap gap-x-4 gap-y-1">
+                <ul className="flex flex-col items-center gap-x-4 gap-y-1">
                     {navItems.map((item, index) => (
                         <li key={index}>
                             <Link
