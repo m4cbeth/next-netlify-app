@@ -21,11 +21,11 @@ export default function Sidenav() {
                     <Link
                         key={index}
                         href={item.href}
-                        className="relative group flex items-center rounded-full justify-center h-12 w-12 bg-slate-800 shadow-lg hover:bg-fuchsia-950 hover:rounded-xl gap-2 transition hover:opacity-80"
+                        className="relative group flex items-center rounded-full justify-center h-12 w-12 bg-slate-950 shadow-lg hover:bg-fuchsia-950 hover:rounded-xl gap-2 transition hover:opacity-80"
                     >
                         {item.icon}
                         
-                        <span className="bg-slate-950 p-3 rounded shadow-lg absolute left-20 scale-0 transition group-hover:scale-100">{item.linkText}</span>
+                        <span className="p-3 rounded shadow-lg absolute left-20 scale-0 transition group-hover:scale-100">{item.linkText}</span>
                     </Link>
                 ))}
             </div>
