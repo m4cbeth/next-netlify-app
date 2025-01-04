@@ -1,7 +1,7 @@
 import { FaPen } from "react-icons/fa";
 import { FaCode } from "react-icons/fa";
 import { FaAt } from "react-icons/fa";
-import { FaInfo } from "react-icons/fa6";
+import { FaInfo } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import Link from "next/link"
 
