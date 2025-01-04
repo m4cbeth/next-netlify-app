@@ -1,29 +1,35 @@
-import '../styles/globals.css';
-import { Footer } from '../components/footer';
-import { Header } from '../components/header';
-
-export const metadata = {
-    title: {
-        template: '%s | Netlify',
-        default: 'Netlify Starter'
-    }
-};
+import '../styles/globals.css'
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en" data-theme="lofi">
+        <html lang="en" data-theme="">
             <head>
                 <link rel="icon" href="/favicon.svg" sizes="any" />
             </head>
-            <body className="antialiased text-white">
-                <div className="flex flex-col min-h-screen px-6 bg-grid-pattern sm:px-12">
-                    <div className="flex border justify-evenly w-full grow">
-                        <Header />
-                        <div className="border max-w-5xl grow">{children}</div>
+            <body className="h-screen">
+                <main class='flex flex-col h-full w-full'>
+                    <div className="flex flex-row flex-1">
+                        <div className=" flex-none w-16 bg-slate-950">
+                            <ul>
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>3</li>
+                            </ul>
+                        </div>
+                        <div className="mainDisplay flex flex-col w-full">
+                            <div className="flex-1">
+                                {children}
+                            </div>
+                            <div className="flex-none">
+                                footer
+                            </div>
+                        </div>
                     </div>
-                    <Footer />
-                </div>
+                </main>
             </body>
         </html>
+        
     );
 }
+
