@@ -3,7 +3,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import Image from 'next/image';
-import { Card } from 'components/card';
+// import { Card } from 'components/card';
+import { TextGenerateEffect as TylerText } from '../components/ui/text-generate-effect';
 
 
 export default function Page({ children }) {
@@ -24,7 +25,8 @@ export default function Page({ children }) {
                     I'm Jaren
                 </h2>
             </div>
-            <Card />
+            <TylerText />
+            {/* <Card /> */}
             <div>
                 <Image width="200" height="200" src="/images/jaren.jpg" alt="Jaren" className="rounded-full" /> 
             </div>
@@ -33,5 +35,5 @@ export default function Page({ children }) {
 }
 
 function makeTylerCard() {
-    
+
 }
