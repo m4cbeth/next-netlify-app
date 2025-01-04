@@ -31,3 +31,7 @@ export default function Page({ children }) {
         </div>
     )
 }
+
+function makeTylerCard() {
+    
+}
