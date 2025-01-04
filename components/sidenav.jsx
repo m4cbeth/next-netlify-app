@@ -3,14 +3,14 @@ import { FaCode } from "react-icons/fa";
 import { FaAt } from "react-icons/fa";
 import { FaInfo } from "react-icons/fa6";
 import { FaHome } from "react-icons/fa";
-import NavBut from "./navbut";
+import Link from "next/link"
 
 const navItems = [
-    { linkText: 'Home', href: '/', icon: <FaHome /> },
-    { linkText: 'Coding', href: '/image-cdn', icon: <FaCode /> },
-    { linkText: 'Writing', href: '/edge', icon: <FaPen /> },
-    { linkText: 'About', href: '/about', icon: <FaInfo /> },
-    { linkText: 'Contact', href: '/contact', icon: <FaAt /> },
+    { linkText: 'Home', href: '/', icon: <FaHome size={25} /> },
+    { linkText: 'Coding', href: '/image-cdn', icon: <FaCode size={25} /> },
+    { linkText: 'Writing', href: '/edge', icon: <FaPen size={23} /> },
+    { linkText: 'About', href: '/about', icon: <FaInfo size={25} /> },
+    { linkText: 'Contact', href: '/contact', icon: <FaAt size={25} /> },
 ];
 
 export default function Sidenav() {
@@ -21,14 +21,14 @@ export default function Sidenav() {
                     <Link
                         key={index}
                         href={item.href}
-                        className="flex items-center gap-2 px-1.5 py-1 transition hover:opacity-80 sm:px-3 sm:py-2"
+                        className="relative group flex items-center rounded-full justify-center h-12 w-12 bg-slate-800 shadow-lg hover:bg-fuchsia-950 hover:rounded-xl gap-2 transition hover:opacity-80"
                     >
                         {item.icon}
-                        <span>{item.linkText}</span>
+                        
+                        <span className="bg-slate-950 p-3 rounded shadow-lg absolute left-20 scale-0 transition group-hover:scale-100">{item.linkText}</span>
                     </Link>
                 ))}
             </div>
-            <NavBut />
         </div>
     )
 }

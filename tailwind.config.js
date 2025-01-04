@@ -15,6 +15,10 @@ module.exports = {
             fontFamily: {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans]
             }
+            // #1B263B // colors to make a pallette out of
+            // #415A77
+            // #778DA9
+            // #E0E1DD
         }
     },
     daisyui: {
