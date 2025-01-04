@@ -20,7 +20,7 @@ export default function Page({ children }) {
                         <span>Hi!</span>
                     </h1>
                     <h2 data-aos="fade-left" className="text-4xl font-black">
-                        <span>I'm Jaren</span>
+                        <span>Im Jaren</span>
                     </h2>
                 </div>
                 <SynthGradCard />
