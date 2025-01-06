@@ -2,8 +2,7 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import HeroSection from '/components/made-components/hero-section';
-
-
+import { ProjectCarousel } from 'components/made-components/projectCarousel'
 
 export default function Page({ children }) {
 
@@ -14,7 +13,10 @@ export default function Page({ children }) {
             </h1>
             <section>
                 <div className="div">
-                    <HeroSection />
+                    {/* <HeroSection /> */}
+                    <div className="HEROSECTION min-h-96 flex justify-center bg-gradient-to-b from-base-100 via-slate-600 to-base-100">
+                        
+                    </div>
                 </div>
                 <div>
                     <Link href="/timezones">
@@ -33,6 +35,9 @@ export default function Page({ children }) {
                         </button>
                     </Link>
                     <button className="transition hover:scale-125 mx-4 btn-outline border-2 rounded-lg mt-10 btn btn-large btn-neutral">BUTTON</button>
+                </div>
+                <div className="bg-slate-800 min-h-44 flex justify-center">
+                    <div>hey</div>
                 </div>
             </section>
         </div>
