@@ -1,22 +1,42 @@
 'use client';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import Link from 'next/link';
 import HeroSection from '/components/made-components/hero-section';
 import { ProjectCarousel } from 'components/made-components/projectCarousel'
-
+import { ThemeContext } from './layout';
+import { useContext } from 'react';
 export default function Page({ children }) {
+    useEffect(() => {
+            AOS.init({
+                startEvent: 'DOMContentLoaded',
+                duration: 1000,
+                once: false,
+            });
+        }, []);
+    const theme = useContext(ThemeContext)
 
     return (
         <div className='MAIN'>
-            <h1 className="max-w-4xl mx-auto">
+            <h1  data-aos="fade-left" className="max-w-4xl mb-0 ml-9">
                 Hello, Jaren!
             </h1>
-            <section>
-                <div className="div">
-                    {/* <HeroSection /> */}
-                    <div className="HEROSECTION min-h-96 flex justify-center bg-gradient-to-b from-base-100 via-slate-600 to-base-100">
-                        
-                    </div>
+            <section className='border-t-[1px]'>
+                <div data-aos="fade" data-aos-duration="3000">
+                    <HeroSection />
+                    {/* <div className={`HEROSECTION text-black min-h-96 flex justify-center bg-gradient-to-br to-base-100 ${!theme? "from-neutral-800":"from-slate-100"}`}>
+                        <div className="flex-1">
+                            <div className="max-w-lg mx-auto">
+                                <h2 
+                                data-aos="fade-right" 
+                                className="text-4xl mt-10">
+                                    Heading 2
+                                </h2>
+                            </div>
+                        </div>
+                        <div className="flex-1"></div>
+                    </div> */}
                 </div>
                 <div>
                     <Link href="/timezones">

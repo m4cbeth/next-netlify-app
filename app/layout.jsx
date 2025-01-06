@@ -34,19 +34,17 @@ export default function Rootlayout({ children }) {
                     <link rel="icon" href="/favicon.svg" sizes="any" />
                 </head>
                 <body className="h-screen">
-                    <div className='flex gap-3 items-center justify-between p-1 md:p-4'>
-                        <div className='flex m-2'>
-                            <Link className='no-underline  pr-5' href="/">
-                                <div className="font-extralight text-3xl hover:scale-150 hover:text-secondary transition ease-out">
-                                    JW
-                                </div>
-                            </Link>
-                            <div className="flex flex-col justify-center text-sm md:text-lg">
-                                <div className="inline-block">
-                                          <Link href="/"        className="hover:text-accent">HOME</Link > &nbsp;|
-                                    &nbsp;<Link href="/about"   className="hover:text-accent">ABOUT</Link > &nbsp;|
-                                    &nbsp;<Link href="/contact" className="hover:text-accent">CONTACT</Link >
-                                </div>
+                    <div className='flex items-center justify-evenly p-1 md:p-4'>
+                        <Link className='no-underline  pr-0 lg:pr-5' href="/">
+                            <div className="font-extralight text-3xl hover:scale-150 hover:text-secondary transition ease-out">
+                                JW
+                            </div>
+                        </Link>
+                        <div className="flex-1 text-sm md:text-lg">
+                            <div className="w-full align-text-bottom inline-block">
+                                        <Link href="/"        className="hover:text-accent">HOME</Link > &nbsp;|
+                                &nbsp;<Link href="/about"   className="hover:text-accent">ABOUT</Link > &nbsp;|
+                                &nbsp;<Link href="/contact" className="hover:text-accent">CONTACT</Link >
                             </div>
                         </div>
                         <div className="flex items-center gap-2 scale-75">
@@ -59,6 +57,8 @@ export default function Rootlayout({ children }) {
                                 <Switch defaultChecked="true" onCheckedChange={() => changeTheme()} />
                             </div>
                         </div>
+
+
                     </div>
                     {/* <div className="flex items-center justify-between w-full p-4">
                         <div className="flex-none">X</div>
