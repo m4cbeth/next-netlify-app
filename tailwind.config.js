@@ -81,7 +81,7 @@ module.exports = {
                     accent: "0077b6",
                     neutral: colors.slate[500],
                     // take this out in production
-                    "base-100": process.env.NODE_ENV === 'production' ? "a0a1ad" : "fff"
+                    "base-100": process.env.NODE_ENV === 'production' ? "fff" : "999"
                 }
 
             }
