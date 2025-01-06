@@ -1,16 +1,8 @@
 'use client';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 
 export default function Page({ children }) {
-    useEffect(() => {
-        AOS.init({
-            startEvent: 'DOMContentLoaded',
-            duration: 1000,
-            once: true,
-        });
-    }, []);
+
     return (
         <div>
             <h1>
