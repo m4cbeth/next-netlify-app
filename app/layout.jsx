@@ -6,6 +6,7 @@ import '/styles/globals.css'
 import { useState } from 'react'
 import { Switch } from '/components/ui/switch'
 import { FaMoon, FaSun } from 'react-icons/fa'
+import Link from 'next/link'
 
 export default function Rootlayout({ children }) {
 
@@ -30,15 +31,21 @@ export default function Rootlayout({ children }) {
             </head>
             <body className="h-screen">                
                 <div className='flex gap-3 items-center justify-between p-1 md:p-4'>
-                    <div className='flex font-bold'>
-                        <div className="font-extralight text-2xl pr-5 hover:scale-150 hover:text-secondary transition ease-out">
-                            JW
-                        </div>
-                        <div className="flex flex-col justify-end">
-                            <span className="inline-block align-baseline hover:text-accent">HOME, ABOUT, CONTACT</span>
+                    <div className='flex'>
+                        <Link className='no-underline  pr-5' href="/">
+                            <div className="font-extralight text-3xl hover:scale-150 hover:text-secondary transition ease-out">
+                                JW
+                            </div>
+                        </Link>
+                        <div className="flex flex-col justify-end text-sm md:text-lg">
+                            <div className="inline-block">
+                                      <Link href="/"        className="hover:text-accent">HOME</Link > &nbsp;|
+                                &nbsp;<Link href="/about"   className="hover:text-accent">ABOUT</Link > &nbsp;|
+                                &nbsp;<Link href="/contact" className="hover:text-accent">CONTACT</Link >
+                            </div>
                         </div>
                     </div>
-                    <div className="flex items-center gap-2 scale-75 sm:scale-75 md:scale-75 lg:scale-75">
+                    <div className="flex items-center gap-2 scale-75">
                         {
                             theme === 0 ?
                             <FaSun data-aos="fade-down" className='text-3xl hover:cursor-pointer' onClick={() => setSynth()} />:
