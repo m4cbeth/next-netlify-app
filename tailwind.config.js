@@ -49,6 +49,7 @@ module.exports = {
     		},
     		fontFamily: {
     			sans: [
+                    'Lexend',
     				'Inter',
                     ...defaultTheme.fontFamily.sans
                 ]
@@ -63,10 +64,20 @@ module.exports = {
     daisyui: {
         themes: [
             {
-                sunset: {
-                    ...require('daisyui/src/theming/themes')['sunset']
-                    
+                black: {
+                    ...require('daisyui/src/theming/themes')['black'],
+                    primary: colors.purple,
+                    secondary: colors.blue
+                },
+                synthwave: {
+                    ...require('daisyui/src/theming/themes')['synthwave'],
+                },
+                lofi: {
+                    ...require('daisyui/src/theming/themes')['lofi'],
+                    primary: colors.purple,
+                    secondary: colors.blue
                 }
+
             }
         ]
     },
