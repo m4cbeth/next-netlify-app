@@ -1,22 +1,20 @@
 'use client';
 import { useEffect } from 'react';
 import Link from 'next/link';
+import HeroSection from '/components/made-components/hero-section';
+
+
 
 export default function Page({ children }) {
 
     return (
-        <div className='MAIN mx-5'>
-            <h1>
-                Hello, world!
+        <div className='MAIN'>
+            <h1 className="max-w-4xl mx-auto">
+                Hello, Jaren!
             </h1>
             <section>
                 <div className="div">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac
-                        ultricies est. Sed nec eros nec tortor tincidunt tincidunt. Nulla
-                        facilisi. Sed id enim nec odio fermentum ultricies. Nulla facilisi.
-                        Sed id enim nec odio fermentum ultricies.
-                    </p>
+                    <HeroSection />
                 </div>
                 <div>
                     <Link href="/timezones">

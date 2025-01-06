@@ -5,9 +5,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* * {
- border: 1px solid white;
-} */
+* {
+ /* border: 1px solid white; */
+}
 
 /* .flex {
     border: 1px solid red;
