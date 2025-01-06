@@ -24,8 +24,16 @@ export default function Page({ children }) {
                             Time Zones
                         </button>
                     </Link>
-                    <button className="transition hover:scale-125 mx-4 btn-outline border-2 rounded-lg mt-10 btn btn-large btn-secondary">BUTTON</button>
-                    <button className="transition hover:scale-125 mx-4 btn-outline border-2 rounded-lg mt-10 btn btn-large btn-accent">BUTTON</button>
+                    <Link href="/about">
+                        <button className= "transition hover:scale-125 mx-4 btn-outline border-2 rounded-lg mt-10 btn btn-large btn-secondary">
+                            <span className="text-white">About me</span>
+                        </button>
+                    </Link>
+                    <Link href="/contact">
+                        <button className="transition hover:scale-125 mx-4 btn-outline border-2 rounded-lg mt-10 btn btn-large btn-accent">
+                            Say hello!
+                        </button>
+                    </Link>
                     <button className="transition hover:scale-125 mx-4 btn-outline border-2 rounded-lg mt-10 btn btn-large btn-neutral">BUTTON</button>
                 </div>
             </section>

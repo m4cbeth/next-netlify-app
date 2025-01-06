@@ -13,9 +13,9 @@ export default function Contact() {
                 drop a line online
             </h2>
             <div className="flex justify-center gap-10 p-5">
-                <FaBluesky className="text-5xl" />
-                <FaGithub className="text-5xl" />
-                <FaLinkedin className="text-5xl" />
+                <FaBluesky className="text-5xl hover:scale-125 transition hover:cursor-pointer hover:text-accent" />
+                <FaGithub className="text-5xl hover:scale-125 transition hover:cursor-pointer hover:text-accent" />
+                <FaLinkedin className="text-5xl hover:scale-125 transition hover:cursor-pointer hover:text-accent" />
             </div>
             <h2 className="px-5">
                 ask away, or just say hi!
