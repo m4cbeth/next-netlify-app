@@ -34,7 +34,7 @@ export default function Rootlayout({ children }) {
                         <FaSun data-aos="fade-down" className='hover:cursor-pointer text-3xl' onClick={() => setSynth()} />:
                         <FaMoon data-aos="fade-up" className='hover:cursor-pointer text-3xl' onClick={() => setSynth()} />
                     }
-                    <Switch onCheckedChange={() => changeTheme()} />
+                    <Switch defaultChecked="true" onCheckedChange={() => changeTheme()} />
                 </div>
                 {children}
             </body>

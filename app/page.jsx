@@ -17,6 +17,12 @@ export default function Page({ children }) {
                         Sed id enim nec odio fermentum ultricies.
                     </p>
                 </div>
+                <div>
+                    <button className="btn btn-large btn-success">BUTTON</button>
+                    <button className="btn btn-large btn-success">BUTTON</button>
+                    <button className="btn btn-large btn-success">BUTTON</button>
+                    <button className="btn btn-large btn-success">BUTTON</button>
+                </div>
             </section>
         </div>
     )
