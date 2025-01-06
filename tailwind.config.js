@@ -66,16 +66,22 @@ module.exports = {
             {
                 black: {
                     ...require('daisyui/src/theming/themes')['black'],
-                    primary: colors.purple,
-                    secondary: colors.blue
+                    primary: "white",
+                    secondary: "003566",
+                    accent: "0077b6",
+                    neutral: colors.gray[800]
                 },
                 synthwave: {
                     ...require('daisyui/src/theming/themes')['synthwave'],
                 },
                 lofi: {
                     ...require('daisyui/src/theming/themes')['lofi'],
-                    primary: colors.purple,
-                    secondary: colors.blue
+                    primary: "black",
+                    secondary: "003566",
+                    accent: "0077b6",
+                    neutral: colors.slate[500],
+                    // take this out in production
+                    "base-100": process.env.NODE_ENV === 'production' ? "a0a1ad" : "fff"
                 }
 
             }

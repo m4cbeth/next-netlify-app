@@ -18,10 +18,10 @@ export default function Page({ children }) {
                     </p>
                 </div>
                 <div>
-                    <button className="btn btn-large btn-success">BUTTON</button>
-                    <button className="btn btn-large btn-success">BUTTON</button>
-                    <button className="btn btn-large btn-success">BUTTON</button>
-                    <button className="btn btn-large btn-success">BUTTON</button>
+                    <button className="mx-4 btn-outline border-2 rounded-lg mt-10 btn btn-large btn-primary">BUTTON</button>
+                    <button className="mx-4 btn-outline border-2 rounded-lg mt-10 btn btn-large btn-secondary">BUTTON</button>
+                    <button className="mx-4 btn-outline border-2 rounded-lg mt-10 btn btn-large btn-accent">BUTTON</button>
+                    <button className="mx-4 btn-outline border-2 rounded-lg mt-10 btn btn-large btn-neutral">BUTTON</button>
                 </div>
             </section>
         </div>

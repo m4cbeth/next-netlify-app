@@ -12,7 +12,11 @@ export default function Rootlayout({ children }) {
     const [theme, setTheme] = useState(1)
     const themes = ['lofi', 'black', 'synthwave']
     const changeTheme = () => { theme > 0 ? setTheme(0) : setTheme(1) }
-    const setSynth = () => { setTheme(2) }
+    const setSynth = () => {
+        // setTheme(2)
+        console.log("olfdhdhd")
+        setTheme(2)
+    }
 
 
     useEffect(() => {
@@ -31,8 +35,8 @@ export default function Rootlayout({ children }) {
                 <div className='grid grid-flow-col gap-3 items-center justify-end p-4'>
                     {
                         theme === 0 ?
-                        <FaSun data-aos="fade-down" className='hover:cursor-pointer text-3xl' onClick={() => setSynth()} />:
-                        <FaMoon data-aos="fade-up" className='hover:cursor-pointer text-3xl' onClick={() => setSynth()} />
+                        <FaSun data-aos="fade-down" className='text-3xl' onClick={() => setSynth()} />:
+                        <FaMoon data-aos="fade-up" className='text-3xl' onClick={() => setSynth()} />
                     }
                     <Switch defaultChecked="true" onCheckedChange={() => changeTheme()} />
                 </div>
