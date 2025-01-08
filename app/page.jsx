@@ -12,7 +12,7 @@ export default function Page({ children }) {
             AOS.init({
                 startEvent: 'DOMContentLoaded',
                 duration: 1000,
-                once: false,
+                once: true,
             });
         }, []);
     const theme = useContext(ThemeContext)
@@ -36,14 +36,16 @@ export default function Page({ children }) {
                                 <br />
                                 are gonna shake it up
                             </h2>
-                            <p data-aos="fade-up">
+                            <p 
+                            data-aos="fade-up"
+                            >
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque corrupti vitae ipsum consequuntur? Rem maxime blanditiis perspiciatis, quae beatae corporis fuga, eos porro ut soluta, temporibus ducimus earum odit laborum.
                             </p>
                         </div>
                     </div>
                     <div className=" flex items-center justify-center">
                         <div className="text-9xl grid grid-flow-col justify-end place-items-center p-0">
-                            <div data-aos="fade-right">
+                            <div data-aos="fade-right" className='z-10'>
                                 <div className="translate-x-20 translate-y-4 z-30 rotate-6">😅</div>
                             </div>
                             <div data-aos="fade-down">
@@ -56,7 +58,7 @@ export default function Page({ children }) {
                     </div>
                 </div>
                 <div>
-                    <Link href="/timezones">
+                    <Link href="/projects/timezones">
                         <button className="transition hover:scale-125 mx-4 btn-outline border-2 rounded-lg mt-10 btn btn-large btn-primary">
                             Time Zones
                         </button>
