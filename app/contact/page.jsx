@@ -1,11 +1,15 @@
 import { FaBluesky } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import SignIn from "@/components/sign-in";
 
 
 export default function Contact() {
     return (
-        <div className="container mx-auto max-w-3xl p-5">
+        <div className="container mx-auto max-w-3xl p-5 rounded-xl">
+            <div>
+                <SignIn />
+            </div>
             <h1>
                 Get in touch!
             </h1>
@@ -26,7 +30,7 @@ export default function Contact() {
                 <label htmlFor="email">Email</label>
                 <input type="email" id="email" name="email" />
                 <label htmlFor="message">Message</label>
-                <textarea id="message" name="message"></textarea>
+                <textarea id="message" name="message" rows={10}></textarea>
                 <button type="submit">Send</button> 
             </form>
         </div>

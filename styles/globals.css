@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
  /* border: 1px solid white; */
-}html, body {
+}
+
+html, body {
     max-width: 100%;
     overflow-x: hidden;
 }
@@ -49,7 +52,48 @@ a {
 
 .btn:disabled {
     @apply text-neutral-400 bg-neutral-700;
+
 }
 
+.typewriter {
+    display: flex;
+    
+}
+.typewriter p {
+    float: left;
+    font-family: monospace;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 1px solid white;
+    animation: typing 2.5s steps(22),
+    blink 1s step-end infinite;
 
+}
+.delay {
+    animation-delay: 5s;
+}
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width:100%
+    }
+}
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
 
+.masked {
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Inherit the gradient from the body */
+    -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%);
+    -webkit-mask-size: 50px 50px; /* Size of each cube */
+    -webkit-mask-repeat: repeat;
+    mask-image: radial-gradient(circle, black 50%, transparent 51%);
+    mask-size: 50px 50px; /* Size of each cube */
+    mask-repeat: repeat;
+  }
