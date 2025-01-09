@@ -74,21 +74,21 @@ export default function Page({ children }) {
                 </div>
                 <div>
                     <Link href="/projects/timezones">
-                        <button className="transition hover:scale-125 mx-4 btn-outline border-2 rounded-lg mt-10 btn btn-large btn-primary">
+                        <button className="transition hover:scale-110 mx-4 btn-outline border-2 mt-10 btn btn-large btn-primary">
                             Time Zones
                         </button>
                     </Link>
                     <Link href="/about">
-                        <button className= "transition hover:scale-125 mx-4 btn-outline border-2 rounded-lg mt-10 btn btn-large btn-secondary">
+                        <button className= "transition hover:scale-110 mx-4 btn-outline border-2 mt-10 btn btn-large btn-secondary">
                             <span className="text-white">About me</span>
                         </button>
                     </Link>
                     <Link href="/projects">
-                        <button className="transition hover:scale-125 mx-4 btn-outline border-2 rounded-lg mt-10 btn btn-large btn-accent">
+                        <button className="transition hover:scale-110 mx-4 btn-outline border-2 mt-10 btn btn-large btn-accent">
                             Projects
                         </button>
                     </Link>
-                    <button className="transition hover:scale-125 mx-4 btn-outline border-2 rounded-lg mt-10 btn btn-large btn-neutral">BUTTON</button>
+                    <button className="transition hover:scale-110 mx-4 btn-outline border-2 mt-10 btn btn-large btn-neutral">BUTTON</button>
                 </div>
                 <div className="bg-slate-800 min-h-44 flex justify-center mb-60">
                     <div>hey</div>
