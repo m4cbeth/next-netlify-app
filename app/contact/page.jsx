@@ -1,14 +1,15 @@
 import { FaBluesky } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
-import SignIn from "@/components/sign-in";
+import { SignInWithGithub, SignInWithGoogle } from "@/components/sign-in";
 
 
 export default function Contact() {
     return (
         <div className="container mx-auto max-w-3xl p-5 rounded-xl">
             <div>
-                <SignIn />
+                <SignInWithGithub />
+                <SignInWithGoogle />
             </div>
             <h1>
                 Get in touch!
