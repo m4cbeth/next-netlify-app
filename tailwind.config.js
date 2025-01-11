@@ -35,6 +35,7 @@ const {
 // const { sunset, lofi } = require('daisyui/src/theming/themes');
 const colors = require('tailwindcss/colors');
 const defaultTheme = require('tailwindcss/defaultTheme');
+const { keyframes } = require("framer-motion");
 
 module.exports = {
     darkMode: ['class'],
@@ -49,16 +50,25 @@ module.exports = {
     		},
     		fontFamily: {
     			sans: [
-                    'Lexend',
-    				'Inter',
-                    ...defaultTheme.fontFamily.sans
-                ]
+          'Lexend',
+          'Inter',
+          ...defaultTheme.fontFamily.sans
+          ]
     		},
     		borderRadius: {
     			lg: 'var(--radius)',
     			md: 'calc(var(--radius) - 2px)',
-    			sm: 'calc(var(--radius) - 4px)'
-    		}
+    			sm: 'calc(var(--radius) - 4px)',
+    		},
+        animation: {
+          fadeIn: "fadeIn 10s",
+        },
+        keyframes: {
+          fadeIn: {
+            '0%': { opacity: 0 },
+            '100%': { opacity: 1 },
+          }
+        }
     	}
     },
     daisyui: {

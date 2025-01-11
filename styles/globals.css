@@ -97,3 +97,18 @@ a {
     mask-size: 50px 50px; /* Size of each cube */
     mask-repeat: repeat;
   }
+
+/* @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.fade-in {
+    opacity: 0; 
+    animation: fadeIn 1s ease-in-out 2s forwards; 
+} */
+
+

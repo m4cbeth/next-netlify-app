@@ -10,7 +10,7 @@ export default function AboutPage() {
         <div className='MAIN max-w-4xl mx-auto'>
             <h1>a little about me</h1>
             <TextGenerateEffect words={words} />
-            <div className="float-right mr-10 text-lg">-Tyler Durden</div>           
+            <div className="animate-fadeIn delay-[10000ms] float-right mr-10 text-lg">-Tyler Durden</div>           
         </div>
     );
 }
