@@ -4,24 +4,23 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import Link from 'next/link';
 import HeroSection from '/components/made-components/hero-section';
-import { ProjectCarousel } from 'components/made-components/projectCarousel'
 import { ThemeContext } from './layout';
 import { useContext } from 'react';
-
 
 export default function Page({ children }) {
     useEffect(() => {
             AOS.init({
                 startEvent: 'DOMContentLoaded',
                 duration: 1000,
-                once: true,
+                once: false,
             });
         }, []);
+
     const theme = useContext(ThemeContext)
 
     return (
         <div className='MAIN'>
-            <h1  data-aos="fade-left" className="max-w-4xl lg:text-8xl mb-0 ml-9">
+            <h1  data-aos="fade-left" className="lg:text-6xl mb-0 ml-3">
                 Hello, &#36;&#123;! Jaren &#125;!
             </h1>
             <section className='border-t-[1px]'>
@@ -46,11 +45,6 @@ export default function Page({ children }) {
                                     </p>
                                 </div>
                                 <div data-aos="fade-right">
-                                    <p className="max-w-lg pt-5" >
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque corrupti vitae ipsum consequuntur? Rem maxime blanditiis perspiciatis, quae beatae corporis fuga, eos porro ut soluta, temporibus ducimus earum odit laborum.
-                                    </p>
-                                </div>
-                                <div data-aos="fade-left">
                                     <p className="max-w-lg pt-5" >
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque corrupti vitae ipsum consequuntur? Rem maxime blanditiis perspiciatis, quae beatae corporis fuga, eos porro ut soluta, temporibus ducimus earum odit laborum.
                                     </p>
