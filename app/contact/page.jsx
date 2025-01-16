@@ -6,35 +6,17 @@ import { FaGoogle } from "react-icons/fa"
 import { SignInWithGithub, SignInWithGoogle } from "@/components/sign-in";
 import Link from 'next/link'
 import { useState } from "react";
-
-// const url = "https://jsonplaceholder.typicode.com/todos";
-// const options = {
-//   method: "POST",
-//   headers: {
-//     Accept: "application/json",
-//     "Content-Type": "application/json;charset=UTF-8",
-//   },
-//   body: JSON.stringify({
-//     a: 10,
-//     b: 20,
-//   }),
-// };
-
-// const bang = () => {
-//     console.log("PRIAVATE PARTY")
-//     fetch(url, options)
-//     .then((response) => response.json())
-//     .then((data) => {
-//         console.table(data);
-//     });
-// }
-
-
-
+import { ToastContainer, toast } from "react-toastify";
 
 export default function Contact() {
-    
-    const url = "https://expressapp-cjlk.onrender.com/api"
+    const initState = {
+        name:"",
+        email:"",
+        message:"",
+    }
+    const [formData, setFormData] = useState(initState)
+    // const url = "https://expressapp-cjlk.onrender.com/messages"
+    const url = "http://localhost:3001/messages"
     const options = {
         method: "POST",
         headers: {
@@ -42,9 +24,9 @@ export default function Contact() {
             "Content-Type": "application/json;charset=UTF-8",
         },
         body: JSON.stringify({
-            name: "Hello World",
-            email: "This is a test post.",
-            message: 1,
+            name: formData.name,
+            email: formData.name,
+            message: formData.message,
             
         }),
     };
@@ -55,13 +37,14 @@ export default function Contact() {
         .then((data) => {
             console.log("POST request successful. Response:", data);
         });
+        setFormData(initState)
+        toast.dark('Thank you for your message', {
+            position: "bottom-right",
+
+        })
+
     }
 
-    const [formData, setFormData] = useState({
-        name:"",
-        email:"",
-        message:"",
-    })
     const handleChange = (e) => {
         const { name, value } = e.target
         setFormData((prev) => ({
@@ -72,17 +55,13 @@ export default function Contact() {
     
     return (
         <div>
+            <ToastContainer />
             <div className="container mx-auto max-w-3xl p-5 rounded-xl">
-
-                <div className="btn btn-outline btn-primary">
-                    TESTING API
-                </div>
-                
                 <h1>
                     Get in touch!
                 </h1>
                 <h2 className="px-5">
-                    drop a line online
+                    Drop a line online
                 </h2>
                 <div className="flex justify-center gap-10 p-5">
                     <Link href="https://bsky.app/profile/jarenwhitehouse.bsky.social" target="_blank">
@@ -95,8 +74,8 @@ export default function Contact() {
                         <FaLinkedin className="text-5xl hover:scale-125 transition hover:cursor-pointer hover:text-accent" />
                     </Link>
                 </div>
-                <h2 className="px-5">
-                    ask away, or just say hi!
+                <h2 className="px-5 pt-5">
+                    Or if you've got a question, ask away!
                 </h2>
                 <p>
                     {formData.name}
@@ -107,14 +86,14 @@ export default function Contact() {
                 <p>
                     {formData.message}
                 </p>
-                <form className="flex flex-col gap-4 p-5">
+                <form action={sumbitAction} className="flex flex-col gap-4 p-5">
                     <label htmlFor="name">Name</label>
                     <input value={formData.name} onChange={handleChange} type="text" id="name" name="name" />
                     <label htmlFor="email">Email</label>
                     <input value={formData.email} onChange={handleChange} type="email" id="email" name="email" />
                     <label htmlFor="message">Message</label>
-                    <textarea value={formData.message}rea onChange={handleChange} id="message" name="message" rows={10}></textarea>
-                    <button onSubmit={sumbitAction} type="submit">Send</button>
+                    <textarea value={formData.message} onChange={handleChange} id="message" name="message" rows={10}></textarea>
+                    <button type="submit">Send</button>
                 </form>
             </div>
             {/* <div className=" container mx-auto max-w-3xl p-5 rounded-xl ">
