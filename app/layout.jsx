@@ -53,7 +53,7 @@ export default function Rootlayout({ children }) {
                                           <Link href="/"        className="hover:text-accent">HOME</Link > &nbsp;|
                                     &nbsp;<Link href="/about"   className="hover:text-accent">ABOUT</Link > &nbsp;|
                                     &nbsp;<Link href="/contact" className="hover:text-accent">CONTACT</Link >
-                                </div>
+                                </div> 
                             </div>
                             <div className="flex items-center gap-2 scale-75 lg:scale-100 pr-3 py-2">
                                 {
@@ -76,6 +76,9 @@ export default function Rootlayout({ children }) {
                         {/* MAIN BODY */}
                         <div>
                             {children}
+                        </div>
+                        <div className="border flex justify-center py-5">
+                            &copy;{(new Date).toString().slice(10,15)} Jaren Whitehouse
                         </div>
                     </body>
                 </ThemeContext.Provider>
