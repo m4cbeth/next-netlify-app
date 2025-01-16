@@ -32,32 +32,58 @@ module.exports = {
     theme: {
     	extend: {
     		backgroundImage: {
-                'synth-gradient': 'linear-gradient(51deg, rgba(10,142,86,1) 0%, rgba(53,9,121,1) 31%, rgba(176,5,179,1) 63%, rgba(0,212,255,1) 100%)',
-            },
+    			'synth-gradient': 'linear-gradient(51deg, rgba(10,142,86,1) 0%, rgba(53,9,121,1) 31%, rgba(176,5,179,1) 63%, rgba(0,212,255,1) 100%)'
+    		},
     		colors: {
     			neutral: 'colors.neutral'
     		},
     		fontFamily: {
     			sans: [
-          'Lexend',
-          'Inter',
-          ...defaultTheme.fontFamily.sans
+            'Geist',
+    				// 'Lexend',
+    				'Inter',
+            ...defaultTheme.fontFamily.sans
+          ],
+          mono: [
+            'var(--font-geist-mono)'
           ]
     		},
     		borderRadius: {
     			lg: 'var(--radius)',
     			md: 'calc(var(--radius) - 2px)',
-    			sm: 'calc(var(--radius) - 4px)',
+    			sm: 'calc(var(--radius) - 4px)'
     		},
-        animation: {
-          fadeIn: "fadeIn 20s",
-        },
-        keyframes: {
-          fadeIn: {
-            '0%': { opacity: 0 },
-            '100%': { opacity: 1 },
-          }
-        },
+    		animation: {
+    			fadeIn: 'fadeIn 20s',
+    			'accordion-down': 'accordion-down 0.2s ease-out',
+    			'accordion-up': 'accordion-up 0.2s ease-out'
+    		},
+    		keyframes: {
+    			fadeIn: {
+    				'0%': {
+    					opacity: 0
+    				},
+    				'100%': {
+    					opacity: 1
+    				}
+    			},
+    			'accordion-down': {
+    				from: {
+    					height: '0'
+    				},
+    				to: {
+    					height: 'var(--radix-accordion-content-height)'
+    				}
+    			},
+    			'accordion-up': {
+    				from: {
+    					height: 'var(--radix-accordion-content-height)'
+    				},
+    				to: {
+    					height: '0'
+    				}
+    			}
+    		}
     	}
     },
     daisyui: {
@@ -71,7 +97,7 @@ module.exports = {
                     neutral: colors.gray[800]
                 },
                 synthwave: {
-                    ...require('daisyui/src/theming/themes')['synthwave'],
+                    ...require('daisyui/src/theming/themes')['synthwave']
                 },
                 lofi: {
                     ...require('daisyui/src/theming/themes')['lofi'],

@@ -40,7 +40,7 @@ export default function Rootlayout({ children }) {
                         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                         <link rel="icon" href="/favicon.svg" sizes="any" />
                     </head>
-                    <body className="h-screen w-screen relative">
+                    <body className="h-screen w-screen relative flex flex-col justify-normal">
                         {/* HEADER */}
                         <div className={`flex items-end justify-around p-0 top-0 sticky ${theme ? "bg-black" : "bg-white"} z-[99999999999999999]`}>
                             <Link className='no-underline  pr-2 lg:pr-5 lg:pl-5' href="/">
@@ -77,7 +77,7 @@ export default function Rootlayout({ children }) {
                         <div>
                             {children}
                         </div>
-                        <div className="bg-slate-900 shadow-lg flex justify-center py-5">
+                        <div className="bg-slate-900 shadow-lg flex justify-center py-5 mt-16 bottom-0 w-full">
                             &copy;{(new Date).toString().slice(10,15)} Jaren Whitehouse
                         </div>
                     </body>
