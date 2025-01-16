@@ -77,7 +77,7 @@ export default function Rootlayout({ children }) {
                         <div>
                             {children}
                         </div>
-                        <div className="border flex justify-center py-5">
+                        <div className="bg-slate-900 shadow-lg flex justify-center py-5">
                             &copy;{(new Date).toString().slice(10,15)} Jaren Whitehouse
                         </div>
                     </body>
