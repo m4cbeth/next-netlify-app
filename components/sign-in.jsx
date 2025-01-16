@@ -1,6 +1,7 @@
+"use server"
 import { signIn } from "@/auth"
  
-export function SignInWithGithub() {
+export async function SignInWithGithub() {
   return (
     <form
       action={async () => {
@@ -14,7 +15,7 @@ export function SignInWithGithub() {
 } 
 
 
-export function SignInWithGoogle() {
+export async function SignInWithGoogle() {
   return (
     <form
       action={async () => {
