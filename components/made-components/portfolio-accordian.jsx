@@ -9,6 +9,7 @@ import { FaNodeJs } from "react-icons/fa";
 import { FaGitAlt } from "react-icons/fa6";
 import { DiPostgresql } from "react-icons/di";
 import { SiExpress } from "react-icons/si";
+import React from "react";
 
 import {
     Accordion,
