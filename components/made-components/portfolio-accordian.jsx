@@ -36,7 +36,7 @@ export default function PortAcc() {
             <Accordion type="multiple" collapsible>
             {accordItems.map((x,i) => {
                 return (                                      
-                    <AccordionItem value={"item-"+i}>
+                    <AccordionItem key={i} value={"item-"+i}>
                         <AccordionTrigger className="text-2xl">
                         {x[0]}{x[1]}
                         </AccordionTrigger>

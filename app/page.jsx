@@ -23,7 +23,7 @@ export default function Page({ children }) {
 
     return (
         <div className='MAIN'>
-            <title>Jaren Whitehouse's Portfolio</title>
+            <title>Jaren Whitehouse&apos;s Portfolio</title>
             <h1  data-aos="fade-left" className="lg:text-6xl mb-0 ml-3">
                 Hello, &#36;&#123; !Jaren &#125;!
             </h1>

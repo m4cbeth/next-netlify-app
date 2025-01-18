@@ -76,7 +76,7 @@ export default function Contact() {
                     </Link>
                 </div>
                 <h2 className="px-5 pt-5">
-                    Or if you've got a question, ask away!
+                    Or if you&apos;ve got a question, ask away!
                 </h2>
                 <form action={sumbitAction} className="flex flex-col gap-4 p-5">
                     <label htmlFor="name">Name</label>
