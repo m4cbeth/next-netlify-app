@@ -36,15 +36,16 @@ export default function PortAcc() {
             <Accordion type="multiple" collapsible>
             {accordItems.map((x,i) => {
                 return (                                      
-                    <AccordionItem key={i} value={"item-"+i}>
-                        <AccordionTrigger className="text-2xl">
-                        {x[0]}{x[1]}
-                        </AccordionTrigger>
-                        <AccordionContent className="text-lg">
-                        {x[2]}
-                </AccordionContent>
-            </AccordionItem>
-                
+                    <React.Fragment key={x[1]}>
+                        <AccordionItem  value={"item-"+i}>
+                            <AccordionTrigger className="text-2xl">
+                                {x[0]}{x[1]}
+                            </AccordionTrigger>
+                            <AccordionContent className="text-lg">
+                                {x[2]}
+                            </AccordionContent>
+                        </AccordionItem>
+                    </React.Fragment>               
                 )
             })}
             </Accordion>
