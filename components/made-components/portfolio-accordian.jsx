@@ -38,11 +38,11 @@ export default function PortAcc() {
             {accordItems.map((x,i) => {
                 return (                                      
                     <React.Fragment key={x[1]}>
-                        <AccordionItem  value={"item-"+i}>
-                            <AccordionTrigger className="text-2xl">
+                        <AccordionItem  key={x[1]} value={"item-"+i}>
+                            <AccordionTrigger  key={x[1]} className="text-2xl">
                                 {x[0]}{x[1]}
                             </AccordionTrigger>
-                            <AccordionContent className="text-lg">
+                            <AccordionContent  key={x[1]} className="text-lg">
                                 {x[2]}
                             </AccordionContent>
                         </AccordionItem>
