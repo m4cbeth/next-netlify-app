@@ -53,9 +53,9 @@ export default function Rootlayout({ children }) {
                                 </Link>
                                 <div className="flex-1 pb-2 ">
                                     <div className=" pb-1 md:pb-0 text-nowrap">
-                                              <Link href="/"        className="no-underline text-xs hover:text-accent">HOME</Link > &nbsp;|
-                                        &nbsp;<Link href="/about"   className="no-underline text-xs hover:text-accent">ABOUT</Link > &nbsp;|
-                                        &nbsp;<Link href="/contact" className="no-underline text-xs hover:text-accent">CONTACT</Link >
+                                              <Link href="/"        className="no-underline text-xs md:text-lg hover:text-accent">HOME</Link > &nbsp;|
+                                        &nbsp;<Link href="/about"   className="no-underline text-xs md:text-lg hover:text-accent">ABOUT</Link > &nbsp;|
+                                        &nbsp;<Link href="/contact" className="no-underline text-xs md:text-lg hover:text-accent">CONTACT</Link >
                                     </div> 
                                 </div>
                                 <div className="flex items-center gap-2 lg:scale-100 pr-3 py-2">

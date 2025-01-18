@@ -20,33 +20,31 @@ import {
   
 export default function PortAcc() {
     const accordItems = [
-    [<FaHtml5 className="transition-all" size={33}/>, "HTML", "Body"],
-    [<FaJs className="transition-all" size={33} />, "JavaScript", jsBody()],
-    [<FaCss3 className="transition-all" size={33} />, "CSS", "Body"],
-    [<FaReact className="transition-all" size={33}/>, "React", "Body"],
-    [<FaNodeJs className="transition-all" size={33}/>, "Node", "Body"],
-    [<RiNextjsFill className="transition-all" size={33}/>, "Next.js", "Body"],
-    [<RiTailwindCssFill className="transition-all" size={33}/>, "Tailwind CSS", "Body"],
-    [<SiFirebase className="transition-all" size={33}/>, "Firebase", fireBody()],
-    [<FaGitAlt className="transition-all" size={33}/>, "Git", "Body"],
-    [<SiExpress className="transition-all" size={33}/>, "Express", expressBody() ],
-    [<DiPostgresql className="transition-all" size={33} />, "PostgreSQL", postgresBody()]
+    {icon: <FaHtml5 className="transition-all" size={33}/>, name: "HTML", body: "Body"},
+    {icon: <FaJs className="transition-all" size={33}/>, name: "JavaScript",body:  jsBody()},
+    {icon: <FaCss3 className="transition-all" size={33}/>, name: "CSS", body: "Body"},
+    {icon: <FaReact className="transition-all" size={33}/>, name: "React", body: "Body"},
+    {icon: <FaNodeJs className="transition-all" size={33}/>, name: "Node", body: "Body"},
+    {icon: <RiNextjsFill className="transition-all" size={33}/>, name: "Next.js", body: "Body"},
+    {icon: <RiTailwindCssFill className="transition-all" size={33}/>, name: "Tailwind CSS", body: "Body"},
+    {icon: <SiFirebase className="transition-all" size={33}/>, name: "Firebase",body:  fireBody()},
+    {icon: <FaGitAlt className="transition-all" size={33}/>, name: "Git", body: "Body"},
+    {icon: <SiExpress className="transition-all" size={33}/>, name: "Express", body: expressBody() },
+    {icon: <DiPostgresql className="transition-all" size={33}/>, name: "PostgreSQbody", body: postgresBody()},
 ]
     return (
         <div className="text">
-            <Accordion type="multiple" collapsible>
-            {accordItems.map((x,i) => {
+            <Accordion type="single" collapsible>
+            {accordItems.map((tech,i) => {
                 return (                                      
-                    <React.Fragment key={x[1]}>
-                        <AccordionItem  key={x[1]} value={"item-"+i}>
-                            <AccordionTrigger  key={x[1]} className="text-2xl">
-                                {x[0]}{x[1]}
-                            </AccordionTrigger>
-                            <AccordionContent  key={x[1]} className="text-lg">
-                                {x[2]}
-                            </AccordionContent>
-                        </AccordionItem>
-                    </React.Fragment>               
+                    <AccordionItem  key={i} value={"item-"+i}>
+                        <AccordionTrigger className="text-2xl">
+                            {tech.icon}{tech.name}
+                        </AccordionTrigger>
+                        <AccordionContent>
+                            {tech.body}
+                        </AccordionContent>
+                    </AccordionItem>
                 )
             })}
             </Accordion>
