@@ -7,6 +7,9 @@ import HeroSection from '/components/made-components/hero-section';
 import { ThemeContext } from './layout';
 import { useContext } from 'react';
 
+
+
+
 export default function Page({ children }) {
     useEffect(() => {
             AOS.init({
@@ -20,8 +23,9 @@ export default function Page({ children }) {
 
     return (
         <div className='MAIN'>
+            <title>Jaren Whitehouse's Portfolio</title>
             <h1  data-aos="fade-left" className="lg:text-6xl mb-0 ml-3">
-                Hello, &#36;&#123;! Jaren &#125;!
+                Hello, &#36;&#123; !Jaren &#125;!
             </h1>
             <section className='border-t-[1px]'>
                 <div data-aos="fade" data-aos-duration="3000">
@@ -40,14 +44,14 @@ export default function Page({ children }) {
                                 </h2>
                         
                                 <div 
-                                // data-aos="fade-left"
+                                data-aos="fade-left"
                                 >
                                     <p className="max-w-lg pt-5" >
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque corrupti vitae ipsum consequuntur? Rem maxime blanditiis perspiciatis, quae beatae corporis fuga, eos porro ut soluta, temporibus ducimus earum odit laborum.
                                     </p>
                                 </div>
                                 <div 
-                                // data-aos="fade-right"
+                                data-aos="fade-right"
                                 >
                                     <p className="max-w-lg pt-5" >
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque corrupti vitae ipsum consequuntur? Rem maxime blanditiis perspiciatis, quae beatae corporis fuga, eos porro ut soluta, temporibus ducimus earum odit laborum.

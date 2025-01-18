@@ -12,14 +12,15 @@ import PortAcc from "@/components/made-components/portfolio-accordian";
 
 export default function About() {
     return (               
-        <div className="max-w-3xl mx-auto h-full">
+        <div className="md:max-w-lg md:mx-auto  mx-5 h-full">
+            <title>About Jaren</title>
             <h1>
                 about me
             </h1>
             <section>
-                <div>
-                    
-                </div>
+                <h2 className="text-center font-thin text-4xl pb-5">
+                    My Current Strong Suites
+                </h2>
                 <div>
                     <PortAcc className="size-10" />
                 </div>

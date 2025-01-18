@@ -15,8 +15,8 @@ export default function Contact() {
         message:"",
     }
     const [formData, setFormData] = useState(initState)
-    // const url = "https://expressapp-cjlk.onrender.com/messages"
-    const url = "http://localhost:3001/messages"
+    const url = "https://expressapp-cjlk.onrender.com/messages"
+    // const url = "http://localhost:3001/messages"
     const options = {
         method: "POST",
         headers: {
@@ -55,6 +55,7 @@ export default function Contact() {
     
     return (
         <div>
+            <title>JW: Contact</title>
             <ToastContainer />
             <div className="container mx-auto max-w-3xl p-5 rounded-xl">
                 <h1>
@@ -77,15 +78,6 @@ export default function Contact() {
                 <h2 className="px-5 pt-5">
                     Or if you've got a question, ask away!
                 </h2>
-                <p>
-                    {formData.name}
-                </p>
-                <p>
-                    {formData.email}
-                </p>
-                <p>
-                    {formData.message}
-                </p>
                 <form action={sumbitAction} className="flex flex-col gap-4 p-5">
                     <label htmlFor="name">Name</label>
                     <input value={formData.name} onChange={handleChange} type="text" id="name" name="name" />
