@@ -12,7 +12,9 @@ export default function SignInButton() {
             </button>
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-box border">
-                    <h3 className="font-bold text-2xl text-center">sign(in || up)</h3>
+                    <h3 className="font-light text-3xl text-center">
+                        sign(in || up)
+                    </h3>
                     <div className="flex justify-center p-5">
                         <div className="-rotate-[-20deg] transition-all">
                             <FaLock size={30}/>

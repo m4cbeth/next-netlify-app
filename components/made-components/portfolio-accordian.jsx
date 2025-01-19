@@ -67,7 +67,8 @@ const jsBody = () => (
 const expressBody = () => (
 <div>
     {stars(4)}
-    I actually know
+    Express is another one that holds a special place in my heart, again because of the fear of ever daunting <i>backend</i>.
+    I had several beginner and a few intermediate projects under my belt, before I realize this <i>was</i> backend! I was doing it!    
 </div>
 )
 const postgresBody = () => (
@@ -83,14 +84,15 @@ const postgresBody = () => (
 const fireBody = () => (<div>
     {stars(5)}    
     <p>
-        Firebase. Firebase just clicks for me. But Firebase also fueled my imposter syndrome for about two years longer than I needed.
-        Here I was, making full stack apps, but it felt like I was cheating. I felt like I didn&apos;t know auth, I didn&apos;t know databases,
+        Firebase just clicks for me. But Firebase also fueled my imposter syndrome longer than I needed.
+        Here I was, making apps, but it felt like I was cheating. I felt like I didn&apos;t know auth, I didn&apos;t know databases,
         I didn&apos;t know how to &quot;structure&quot; anything, I didn&apos;t know if anything I was doing was &quot;front end&quot; or &quot;back end&quot;. It just felt
         like a cool system where you could apply JS to make things work the way you wanted.
     </p>
 
     <p>
-        And, granted, at the time I didn&apos;t, but I couldn&apos;t see the forest for the trees. I didn&apos;t see that I was learning, and that
+        And, granted, at the time I didn&apos;t know a lot, but I couldn&apos;t see the forest for the trees.
+        I didn&apos;t see that I was learning, and that
         I could credibly call myself a &quot;full stack developer&quot; even if I didn&apos;t know Kubernetes.
     </p>
 

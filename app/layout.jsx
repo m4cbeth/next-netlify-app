@@ -50,19 +50,17 @@ function Rootlayout({ children }) {
                 </head>
                 <body className="h-screen w-screen relative flex flex-col justify-normal ">
                     <div className='no-overflow'>
-                        {/* HEADER */}
-                        <div className={`flex items-center justify-start top-0 sticky ${theme ? "bg-black" : "bg-white"} z-[99999999999999999]`}>
+        {/* HEADER */}
+                        <div className={`flex items-center justify-start top-0 sticky ${theme ? "bg-black" : "bg-white"} z-[99999999999]`}>
                             <Link className='no-underline  pr-2 lg:pr-5 lg:pl-5' href="/">
                                 <div className="font-extralight text-3xl hover:text-secondary transition ease-out pb-2">
                                     JW
                                 </div>
                             </Link>
                             <div className="flex-1 pb-2 ">
-                                <div className=" pb-1 md:pb-0 text-nowrap">
-                                    <Link href="/"        className="no-underline text-xs md:text-lg hover:text-accent">HOME</Link > &nbsp;| &nbsp;
-                                    <Link href="/about"   className="no-underline text-xs md:text-lg hover:text-accent">ABOUT</Link > &nbsp;| &nbsp;
-                                    <Link href="/contact" className="no-underline text-xs md:text-lg hover:text-accent">CONTACT</Link >
-                                </div> 
+                                <div className="md:inline-block hidden">
+                                    <NavMenuItems/>
+                                </div>
                             </div>
                             <div className="flex items-center gap-2 lg:scale-100 pr-3 py-2">
                                 {
@@ -89,18 +87,23 @@ function Rootlayout({ children }) {
 
 
 
-                        {/* MAIN BODY */}
+   {/* MAIN BODY */}
                         <div>
+                            {/* <pre>{JSON.stringify(session,0,9)}</pre> */}
                             {children}
                         </div>
 
 
-                        {/* FOOTER */}
+    {/* FOOTER */}
                         <div className={`${ theme ? "bg-black" : "bg-white" } shadow-lg flex justify-center py-5 mt-16 bottom-0 w-full`}>
                             &copy;{(new Date).toString().slice(10,15)} Jaren Whitehouse
                         </div>
 
 
+                    </div>
+{/* MOBILE BOTTOM NAV */}
+                    <div className='md:hidden py-3 absolute bottom-0 w-full bg-slate-950 z-[9999999999999] flex justify-center align-middle'>
+                        <NavMenuItems className="py-10" />
                     </div>
                 </body>
             </ThemeContext.Provider>
@@ -112,4 +115,12 @@ const SignOut = () => (
     <button onClick={()=>signOut()} className='btn btn-outline'>Sign Out</button>
 )
 
+
+const NavMenuItems = () => (
+    <div className="md:pb-0 text-nowrap">
+        <Link href="/"        className="no-underline text-xs md:text-lg hover:text-accent">HOME</Link > &nbsp;| &nbsp;
+        <Link href="/about"   className="no-underline text-xs md:text-lg hover:text-accent">ABOUT</Link > &nbsp;| &nbsp;
+        <Link href="/contact" className="no-underline text-xs md:text-lg hover:text-accent">CONTACT</Link >
+    </div>
+)
 
