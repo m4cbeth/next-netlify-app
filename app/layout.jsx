@@ -10,7 +10,6 @@ import Link from 'next/link'
 import SignInButton from '@/components/made-components/signinbutton';
 import { useSession, SessionProvider } from 'next-auth/react';
 import { signOut } from "next-auth/react"
-import Image from 'next/image';
 
 
 export const ThemeContext = createContext()
@@ -82,7 +81,7 @@ function Rootlayout({ children }) {
                             </div>
                             <div>
                                 {!!session ?
-                                <img className='rounded-full' src={session.user.image} width={50} height={50} alt={session.user.name}/> :
+                                <img className='rounded-full pr-5' src={session.user.image} width={50} height={50} alt={session.user.name}/> :
                                 ""
                                 }
                             </div>
@@ -92,7 +91,6 @@ function Rootlayout({ children }) {
 
                         {/* MAIN BODY */}
                         <div>
-                            <pre>{JSON.stringify(session,0,9)}</pre>
                             {children}
                         </div>
 
