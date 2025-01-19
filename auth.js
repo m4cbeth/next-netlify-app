@@ -11,11 +11,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           const response = await fetch(`${process.env.POSTGRES_URL}/api/users`, {
             method: "POST",
             headers: {
-              'Content-Type': 'application/json',
+              Accept: "application/json",
+              "Content-Type": "application/json;charset=UTF-8",
             },
             body: JSON.stringify({
               email: user.email,
               name: user.name,
+              account: account,
+              profile: profile,
             })
           })
           if (!response.ok) {

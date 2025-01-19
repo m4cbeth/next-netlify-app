@@ -2,8 +2,6 @@
 import { FaBluesky } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
-import { FaGoogle } from "react-icons/fa"
-import { SignInWithGithub, SignInWithGoogle } from "@/components/sign-in";
 import Link from 'next/link'
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -15,8 +13,8 @@ export default function Contact() {
         message:"",
     }
     const [formData, setFormData] = useState(initState)
-    const url = "https://expressapp-cjlk.onrender.com/messages"
-    // const url = "http://localhost:3001/messages"
+    // const url = "https://expressapp-cjlk.onrender.com/messages"
+    const url = "http://localhost:3001/messages"
     const options = {
         method: "POST",
         headers: {
