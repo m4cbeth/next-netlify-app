@@ -38,10 +38,10 @@ export default function PortAcc() {
             {accordItems.map((tech,i) => {
                 return (                                      
                     <AccordionItem  key={i} value={"item-"+i}>
-                        <AccordionTrigger className="text-2xl">
+                        <AccordionTrigger className="text-2xl font-light">
                             {tech.icon}{tech.name}
                         </AccordionTrigger>
-                        <AccordionContent>
+                        <AccordionContent className="text-lg">
                             {tech.body}
                         </AccordionContent>
                     </AccordionItem>

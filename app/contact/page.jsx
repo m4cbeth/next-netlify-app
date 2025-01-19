@@ -80,27 +80,14 @@ export default function Contact() {
                 </h2>
                 <form action={sumbitAction} className="flex flex-col gap-4 p-5">
                     <label htmlFor="name">Name</label>
-                    <input value={formData.name} onChange={handleChange} type="text" id="name" name="name" />
+                    <input value={formData.name} onChange={handleChange} type="text" id="name" name="name" className="bg-slate-900" />
                     <label htmlFor="email">Email</label>
-                    <input value={formData.email} onChange={handleChange} type="email" id="email" name="email" />
+                    <input value={formData.email} onChange={handleChange} type="email" id="email" name="email" className="bg-slate-900" />
                     <label htmlFor="message">Message</label>
-                    <textarea value={formData.message} onChange={handleChange} id="message" name="message" rows={10}></textarea>
+                    <textarea value={formData.message} onChange={handleChange} id="message" name="message" rows={10} className="bg-slate-900"></textarea>
                     <button type="submit">Send</button>
                 </form>
             </div>
-            {/* <div className=" container mx-auto max-w-3xl p-5 rounded-xl ">
-                <h1>
-                    Or sign in and message!
-                </h1>
-                <div className="btn btn-primary m-1 ">
-                    <FaGithub />
-                    <SignInWithGithub/>
-                </div>
-                <div className="btn btn-primary m-1 ">
-                    <FaGoogle />
-                    <SignInWithGoogle />
-                </div>
-            </div> */}
         </div>
     )
 }

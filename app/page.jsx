@@ -2,15 +2,15 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
-import Link from 'next/link';
 import HeroSection from '/components/made-components/hero-section';
 import { ThemeContext } from './layout';
 import { useContext } from 'react';
-
+import { useSession  } from 'next-auth/react';
 
 
 
 export default function Page({ children }) {
+    const { data: session } = useSession()
     useEffect(() => {
             AOS.init({
                 startEvent: 'DOMContentLoaded',
@@ -25,13 +25,13 @@ export default function Page({ children }) {
         <div className='MAIN'>
             <title>Jaren Whitehouse&apos;s Portfolio</title>
             <h1  data-aos="fade-left" className="lg:text-6xl mb-0 ml-3">
-                Hello, &#36;&#123; !Jaren &#125;!
+                Hello, {session ? session.user.name : <>&#36;&#123; !Jaren &#125;</>}!
             </h1>
             <section className='border-t-[1px]'>
                 <div data-aos="fade" data-aos-duration="3000">
                     <HeroSection />
                 </div>
-                <div className={`HEROSECTION text-white pb-10 min flex md:flex-row flex-col-reverse justify-center bg-gradient-to-tl to-indigo-500 ${!theme? "from-neutral-800":"from-purple-500"}`}>
+                <div className={`HEROSECTION text-white pb-10 min flex md:flex-row flex-col-reverse justify-center bg-gradient-to-tl to-indigo-500 ${!theme? "from-neutral-800":"from-violet-500"}`}>
                     
                         <div className=" flex-1 pl-2 md:pl-20 me:p-0 flex justify-center md:justify-end">
                             <div className="max-w-xl px-10">
@@ -63,13 +63,13 @@ export default function Page({ children }) {
                     <div className="flex-1 flex items-center justify-center md:justify-start relative">
                         <div className="text-9xl grid grid-flow-col justify-end place-items-center p-0">
                             <div data-aos="fade-right" className='z-10'>
-                                <div className="translate-x-200 translate-y-4 z-30 rotate-6">😅</div>
+                                <div className="translate-x-200 translate-y-4 z-30 rotate-6 hue-rotate-[90deg]">😅</div>
                             </div>
                             <div data-aos="fade-down" className="absolute">
-                                <div className="-translate-y-20 ">🧑‍💻</div>
+                                <div className="-translate-y-20  hue-rotate-[0deg]">🧑‍💻</div>
                             </div>
                             <div data-aos="fade-left">
-                                <div className="-translate-x-200 -rotate-12">🌞</div>
+                                <div className={`-translate-x-200 -rotate-12 saturate-[5]`}>🌞</div>
                             </div>
                         </div>
                     </div>
