@@ -36,7 +36,7 @@ export default function Page({ children }) {
                         <div className=" flex-1 pl-2 md:pl-20 me:p-0 flex justify-center md:justify-end">
                             <div className="max-w-xl px-10">
                                 <h2
-                                data-aos="fade-right"
+                                data-aos="fade-down"
                                 className="text-4xl mt-10">
                                     But You and Me,
                                     <br />
@@ -44,14 +44,14 @@ export default function Page({ children }) {
                                 </h2>
                         
                                 <div 
-                                data-aos="fade-left"
+                                data-aos="fade-right"
                                 >
                                     <p className="max-w-lg pt-5" >
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque corrupti vitae ipsum consequuntur? Rem maxime blanditiis perspiciatis, quae beatae corporis fuga, eos porro ut soluta, temporibus ducimus earum odit laborum.
                                     </p>
                                 </div>
                                 <div 
-                                data-aos="fade-right"
+                                data-aos="fade-left"
                                 >
                                     <p className="max-w-lg pt-5" >
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque corrupti vitae ipsum consequuntur? Rem maxime blanditiis perspiciatis, quae beatae corporis fuga, eos porro ut soluta, temporibus ducimus earum odit laborum.
@@ -62,13 +62,19 @@ export default function Page({ children }) {
                     </div>
                     <div className="flex-1 flex items-center justify-center md:justify-start relative">
                         <div className="text-9xl grid grid-flow-col justify-end place-items-center p-0">
-                            <div data-aos="fade-right" className='z-10'>
+                            <div 
+                            data-aos="fade-right" 
+                            className='z-10'>
                                 <div className="translate-x-200 translate-y-4 z-30 rotate-6 hue-rotate-[90deg]">😅</div>
                             </div>
-                            <div data-aos="fade-down" className="absolute">
+                            <div 
+                            data-aos="fade-up" 
+                            className="absolute">
                                 <div className="-translate-y-20  hue-rotate-[0deg]">🧑‍💻</div>
                             </div>
-                            <div data-aos="fade-left">
+                            <div 
+                            data-aos="fade-left"
+                            >
                                 <div className={`-translate-x-200 -rotate-12 saturate-[5]`}>🌞</div>
                             </div>
                         </div>

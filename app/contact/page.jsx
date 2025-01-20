@@ -5,16 +5,18 @@ import { FaLinkedin } from "react-icons/fa";
 import Link from 'next/link'
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { useSession } from "next-auth/react";
 
 export default function Contact() {
+    const { data: session, status } = useSession()
     const initState = {
         name:"",
         email:"",
         message:"",
     }
     const [formData, setFormData] = useState(initState)
-    // const url = "https://expressapp-cjlk.onrender.com/messages"
-    const url = "http://localhost:3001/messages"
+    const url = "https://expressapp-cjlk.onrender.com/messages"
+    // const url = "http://localhost:3001/messages"
     const options = {
         method: "POST",
         headers: {
@@ -34,7 +36,8 @@ export default function Contact() {
         .then((response) => response.json())
         .then((data) => {
             console.log("POST request successful. Response:", data);
-        });
+        })
+        .catch((err)=> console.error(`SUMBIT ACTION FAILED, err: ${err}`))
         setFormData(initState)
         toast.dark('Thank you for your message', {
             position: "bottom-right",

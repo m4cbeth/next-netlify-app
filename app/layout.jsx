@@ -48,7 +48,7 @@ function Rootlayout({ children }) {
                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                     <link rel="icon" href="/favicon.svg" sizes="any" />
                 </head>
-                <body className="h-screen w-screen relative flex flex-col justify-normal ">
+                <body className="w-full relative flex flex-col justify-normal ">
                     <div className='no-overflow'>
         {/* HEADER */}
                         <div className={`flex items-center justify-start top-0 sticky ${theme ? "bg-black" : "bg-white"} z-[99999999999]`}>
@@ -95,14 +95,14 @@ function Rootlayout({ children }) {
 
 
     {/* FOOTER */}
-                        <div className={`${ theme ? "bg-black" : "bg-white" } shadow-lg flex justify-center py-5 mt-16 bottom-0 w-full`}>
+                        <div className={`${ theme ? "bg-black" : "bg-white" } mb-16 md:mb-0 shadow-lg flex justify-center py-3 mt-16 bottom-0 w-full`}>
                             &copy;{(new Date).toString().slice(10,15)} Jaren Whitehouse
                         </div>
 
 
                     </div>
 {/* MOBILE BOTTOM NAV */}
-                    <div className='md:hidden py-3 absolute bottom-0 w-full bg-slate-950 z-[9999999999999] flex justify-center align-middle'>
+                    <div className='md:hidden py-5 sticky bottom-0 w-full bg-slate-950 z-[9999999999999] flex justify-center align-middle'>
                         <NavMenuItems className="py-10" />
                     </div>
                 </body>
@@ -118,9 +118,9 @@ const SignOut = () => (
 
 const NavMenuItems = () => (
     <div className="md:pb-0 text-nowrap">
-        <Link href="/"        className="no-underline text-xs md:text-lg hover:text-accent">HOME</Link > &nbsp;| &nbsp;
-        <Link href="/about"   className="no-underline text-xs md:text-lg hover:text-accent">ABOUT</Link > &nbsp;| &nbsp;
-        <Link href="/contact" className="no-underline text-xs md:text-lg hover:text-accent">CONTACT</Link >
+        <Link href="/"        className="no-underline text-lg md:text-lg hover:text-accent">HOME</Link > &nbsp;| &nbsp;
+        <Link href="/about"   className="no-underline text-lg md:text-lg hover:text-accent">ABOUT</Link > &nbsp;| &nbsp;
+        <Link href="/contact" className="no-underline text-lg md:text-lg hover:text-accent">CONTACT</Link >
     </div>
 )
 

@@ -11,6 +11,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         // SEE NOTE BELOW ON THIS POSTGRESS URL
         const postgresurl = `${process.env.POSTGRES_URL}/api/users`
         const url = `${process.env.NODE_ENV === "development" ? "http://localhost:3001" : "https://expressapp-cjlk.onrender.com"}/signin`
+        // const url = "https://expressapp-cjlk.onrender.com/signin"
         const options = {
           method: "POST",
             headers: {
@@ -31,7 +32,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             return true
           } else {
             const data = await response.json()
-            console.log(data)
+            console.log(data.user)
+            // ^^^ this is a great value to store into state somewhere! Global user context, alongside the auth context!
           }
         } catch (err) {
           console.error(err)
