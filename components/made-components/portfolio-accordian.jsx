@@ -60,7 +60,7 @@ const htmlBody = () => (
     {stars(4.5)}
     <p>
         HTML, where it all began. When I was 14 a friend found a website called HTML Primers that was just an amazing resource on the web
-        (back when most "structuring" was doing with tables! I don&apos;t think "div" even existed yet).
+        (back when most &quot;structuring&quot; was doing with tables! I don&apos;t think &quot;div&quot; even existed yet).
     </p>
     <p>
         I now am at a good level of knowledge with HTML, and use good fundementals when it comes to semantic html, leveraging the proper tags
@@ -78,7 +78,7 @@ const jsBody = () => (
 const cssBody = () => (
 <div>
     {stars(1)}
-    Friggin CSS. One star. I'm terrible at it, always have been. Still out here struggling to center a div. And I've tried everything!
+    Friggin CSS. One star. I&apos;m terrible at it, always have been. Still out here struggling to center a div. And I&apos;ve tried everything!
     CSS-in-JS, modules, styles components, you name it. But then, just when all home was lost... well, see below (TailwindCSS).
 </div>
 )
@@ -87,17 +87,17 @@ const reactBody = () => (
     {stars(5)}
     <p>
         I love react for a very specific reason. When I first started learning it, I think it was a bit of a doozy. There were class components
-        and functional components. Stateful components or "dummy" components. A lot of this.that = this.that and binding, and render return.
+        and functional components. Stateful components or &quot;dummy&quot; components. A lot of this.that = this.that and binding, and render return.
     </p>
     <p>
-        It kinda felt awesome and dumb at the same time. And a lot of it felt like it could be so much more "functional". And I mean, literally,
+        It kinda felt awesome and dumb at the same time. And a lot of it felt like it could be so much more &quot;functional&quot;. And I mean, literally,
         just more functions. And I kinda did that on my own, bending the system to my way of just using functions and functions that take functions and
         return functions.
     </p>
     <p>
-        And then, I kinda gave up coding for a while. But I kept reading about the updates. Hearing about hooks, reading about them, and going, "
-        hey, that's basically what I was doing". Then coming back to react, just as the Context API was rolling out so I could also say goodbye
-        to Redux (you'll notice it's not on this list).
+        And then, I kinda gave up coding for a while. But I kept reading about the updates. Hearing about hooks, reading about them, and going, &quot;
+        hey, that&apos;s basically what I was doing&quot;. Then coming back to react, just as the Context API was rolling out so I could also say goodbye
+        to Redux (you&apos;ll notice it&apos;s not on this list).
     </p>
 
 </div>
