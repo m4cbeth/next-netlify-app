@@ -3,7 +3,8 @@ import GitHub from "next-auth/providers/github"
 import Google from "next-auth/providers/google"
 import Instagram from "next-auth/providers/instagram"
 import { DiGhost } from "react-icons/di"
- 
+
+
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [GitHub, Google, Instagram],
   callbacks: {
@@ -31,9 +32,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             console.error('failed to post to db')
             return true
           } else {
-            const data = await response.json()
-            console.log(data.user)
+            // const data = await response.json()
+            // console.log(data.user)
             // ^^^ this is a great value to store into state somewhere! Global user context, alongside the auth context!
+            // but can't store to data here, this is outside react... Do this same fetch in a useSession!
           }
         } catch (err) {
           console.error(err)

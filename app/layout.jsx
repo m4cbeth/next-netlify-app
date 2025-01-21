@@ -14,6 +14,8 @@ import { signOut } from "next-auth/react"
 
 export const ThemeContext = createContext()
 
+
+
 export default function AuthAppWrap({ children }) {
     return (
         <SessionProvider>
@@ -25,7 +27,33 @@ export default function AuthAppWrap({ children }) {
 }
 
 function Rootlayout({ children }) {
-    const { data: session } = useSession()
+    const [ userData, setUserData ] = useState(null)
+    const { data: session, status } = useSession()
+    // get user db data
+    useEffect(() => {
+        const url = `${process.env.NODE_ENV === "development" ? "http://localhost:3001" : "https://expressapp-cjlk.onrender.com"}/getUser`
+        // const url = "https://expressapp-cjlk.onrender.com/getUser"
+        if (status === 'authenticated' && session.user) {
+            const fetchUserData = async () => {
+                try {
+                    const res = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email: session.user.email }),
+                    })
+                    if (res.ok) {
+                        const data = await res.json()
+                        setUserData(data)
+                    } else {
+                        console.error('res.ok not ok, Failed to fetch user data')
+                    }
+                } catch (err) {
+                    console.error('Error fetching user data:', err)
+                }
+            }
+            fetchUserData()
+        }
+    }, [session, status])
 
     const [theme, setTheme] = useState(1)
     const themes = ['lofi', 'black', 'synthwave']
@@ -89,7 +117,9 @@ function Rootlayout({ children }) {
 
    {/* MAIN BODY */}
                         <div>
-                            {/* <pre>{JSON.stringify(session,0,9)}</pre> */}
+                            <pre>{!userData ? userData : `${JSON.stringify(userData, 0, 9)}`}</pre>
+                            <pre>{true ? "ddd" : "notnull"}</pre>
+                            <pre>{JSON.stringify(session,0,9)}</pre>
                             {children}
                         </div>
 
