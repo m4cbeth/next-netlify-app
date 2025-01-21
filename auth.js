@@ -15,10 +15,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         // const url = "https://expressapp-cjlk.onrender.com/signin"
         const options = {
           method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json;charset=UTF-8",
-            },
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
               email: user.email,
               name: user.name,

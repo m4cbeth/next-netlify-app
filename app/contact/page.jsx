@@ -2,50 +2,75 @@
 import { FaBluesky } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import {Table,TableBody,TableCaption,TableCell,TableHead,TableHeader,TableRow} from "@/components/ui/table"
 import Link from 'next/link'
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useSession } from "next-auth/react";
+import { UserDBContext } from "../layout";
 
 export default function Contact() {
-    const { data: session, status } = useSession()
-    const initState = {
+    const formInitState = {
         name:"",
         email:"",
         message:"",
     }
-    const [formData, setFormData] = useState(initState)
-    const url = "https://expressapp-cjlk.onrender.com/messages"
-    // const url = "http://localhost:3001/messages"
-    const options = {
-        method: "POST",
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json;charset=UTF-8",
-        },
-        body: JSON.stringify({
-            name: formData.name,
-            email: formData.name,
-            message: formData.message,
-            
-        }),
-    };
+    const { data: session, status } = useSession()
+    const userDbData = useContext(UserDBContext)
+    const [formData, setFormData] = useState(formInitState)
+    const [leftMessages, setMessages] = useState([])
+    
+    // if user, get db messages
+    useEffect(() => {
+        if (!session?.user.email) return
+        const url = 'http://localhost:3001/getmessages'
+        const options = {
+            method: 'POST',
+            headers: {"Content-Type": "application/json", "Accept": "application/json"},
+            body: JSON.stringify({
+                email: session?.user.email
+            })
+        }
+        fetch(url, options) 
+        .then((res)=> res.json())
+        .then((data)=> {
+            if (Array.isArray(data.messages)) {
+                setMessages(data.messages)
+                console.log('set messages')
+            } else {
+                console.error('expected array got', data.messages)
+            }
+        })
+        .catch((err) => console.error(`tis nobller to ${err}`))
+
+    }, [session])
     
     const sumbitAction = () => {
+        // const url = "http://localhost:3001/messages"
+        const url = "https://expressapp-cjlk.onrender.com/messages"
+        const options = {
+            method: "POST",
+            headers: {"Content-Type": "application/json;charset=UTF-8"},
+            body: JSON.stringify({
+                name: formData.name,
+                email: formData.email,
+                message: formData.message,                
+            }),
+        };
         fetch(url, options)
         .then((response) => response.json())
         .then((data) => {
             console.log("POST request successful. Response:", data);
         })
         .catch((err)=> console.error(`SUMBIT ACTION FAILED, err: ${err}`))
-        setFormData(initState)
+        setFormData(formInitState)
         toast.dark('Thank you for your message', {
             position: "bottom-right",
+            className: "z-[9999999999999999999999999999]"
 
         })
 
     }
-
     const handleChange = (e) => {
         const { name, value } = e.target
         setFormData((prev) => ({
@@ -53,7 +78,6 @@ export default function Contact() {
             [name]: value,
         }))
     }
-    
     return (
         <div>
             <title>JW: Contact</title>
@@ -88,6 +112,33 @@ export default function Contact() {
                     <textarea value={formData.message} onChange={handleChange} id="message" name="message" rows={10} className="bg-slate-900"></textarea>
                     <button type="submit">Send</button>
                 </form>
+                {
+                userDbData && (
+                <>
+                <h2 className="text-3xl font-thin">Previous Messages</h2>
+                {Array.isArray(leftMessages) && leftMessages.length > 0 ? (
+                <Table>
+                <TableCaption>Thank you for your messages!</TableCaption>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="w-[100px]">From</TableHead>
+                    <TableHead>Sent On</TableHead>
+                    <TableHead>Message</TableHead>
+                    <TableHead className="text-right">Status</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                {leftMessages.map((message, index) => (
+                  <TableRow key={index}>
+                    <TableCell className="font-medium">{message.name}</TableCell>
+                    <TableCell>{message.createdAt.slice(0,10)}</TableCell>
+                    <TableCell>{message.message}</TableCell>
+                    <TableCell className="text-right">received</TableCell>
+                  </TableRow>
+                ))}
+                </TableBody>
+                </Table>) : ("")}</>)
+                }
             </div>
         </div>
     )

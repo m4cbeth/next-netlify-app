@@ -13,6 +13,7 @@ import { signOut } from "next-auth/react"
 
 
 export const ThemeContext = createContext()
+export const UserDBContext = createContext()
 
 
 
@@ -70,15 +71,16 @@ function Rootlayout({ children }) {
     }, []);
 
     return (
-        <html lang="en" data-theme={themes[theme]}>
-            <ThemeContext.Provider value={theme}>
+    <html lang="en" data-theme={themes[theme]}>
+    <ThemeContext.Provider value={theme}>
+    <UserDBContext.Provider value={userData}>
                 <head>
                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                     <link rel="icon" href="/favicon.svg" sizes="any" />
                 </head>
                 <body className="w-full relative flex flex-col justify-normal ">
                     <div className='no-overflow'>
-        {/* HEADER */}
+    {/* HEADER */}
                         <div className={`flex items-center justify-start top-0 sticky ${theme ? "bg-black" : "bg-white"} z-[99999999999]`}>
                             <Link className='no-underline  pr-2 lg:pr-5 lg:pl-5' href="/">
                                 <div className="font-extralight text-3xl hover:text-secondary transition ease-out pb-2">
@@ -117,9 +119,8 @@ function Rootlayout({ children }) {
 
    {/* MAIN BODY */}
                         <div>
-                            <pre>{!userData ? userData : `${JSON.stringify(userData, 0, 9)}`}</pre>
-                            <pre>{true ? "ddd" : "notnull"}</pre>
-                            <pre>{JSON.stringify(session,0,9)}</pre>
+                            {/* <pre>{!userData ? userData : `${JSON.stringify(userData, 0, 9)}`}</pre>
+                            <pre>{JSON.stringify(session,0,9)}</pre> */}
                             {children}
                         </div>
 
@@ -136,8 +137,9 @@ function Rootlayout({ children }) {
                         <NavMenuItems className="py-10" />
                     </div>
                 </body>
-            </ThemeContext.Provider>
-        </html>
+    </UserDBContext.Provider>
+    </ThemeContext.Provider>
+    </html>
     )
 }
 
