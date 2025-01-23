@@ -10,6 +10,8 @@ import Link from 'next/link'
 import SignInButton from '@/components/made-components/signinbutton';
 import { useSession, SessionProvider } from 'next-auth/react';
 import { signOut } from "next-auth/react"
+import { Button } from '@/components/ui/button';
+import { Sun, Moon } from 'lucide-react'
 
 
 export const ThemeContext = createContext()
@@ -79,7 +81,7 @@ function Rootlayout({ children }) {
                     <link rel="icon" href="/favicon.svg" sizes="any" />
                 </head>
                 <body className="w-full relative flex flex-col justify-normal ">
-                    <div className='no-overflow'>
+                    <div className='no-overflow min-h-screen flex-col items-end '>
     {/* HEADER */}
                         <div className={`flex items-center justify-start top-0 sticky ${theme ? "bg-black" : "bg-white"} z-[99999999999]`}>
                             <Link className='no-underline  pr-2 lg:pr-5 lg:pl-5' href="/">
@@ -92,7 +94,7 @@ function Rootlayout({ children }) {
                                     <NavMenuItems/>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-2 lg:scale-100 pr-3 py-2">
+                            {/* <div className="flex items-center gap-2 lg:scale-100 pr-3 py-2 border ">
                                 {
                                     theme === 0 ?
                                     <FaSun data-aos="fade-down" className='text-xl hover:cursor-pointer' onClick={() => setSynth()} />:
@@ -101,6 +103,13 @@ function Rootlayout({ children }) {
                                 <div>
                                     <Switch defaultChecked="true" onCheckedChange={() => changeTheme()} />
                                 </div>
+                            </div> */}
+                            <div>
+                            <Button onClick={()=>changeTheme()} variant="outline" size="icon" className={theme ? `bg-black` : 'bg-white'}>
+                                <Sun className={`h-[1.2rem] w-[1.2rem] rotate-0 transition-all ${theme ? "scale-0 rotate-0" : "scale-100"}`} />
+                                <Moon className={`absolute h-[1.2rem] w-[1.2rem] transition-all ${theme ? "scale-100 rotate-0 " : "rotate-90 scale-0"}`} />
+                                <span className="sr-only">Toggle theme</span>
+                            </Button>
                             </div>
                             <div className="pr-2 lg:pr-10 my-2 ml-3">
                                 {!!session ? 
@@ -118,7 +127,7 @@ function Rootlayout({ children }) {
 
 
    {/* MAIN BODY */}
-                        <div>
+                        <div className='flex-1'>
                             {/* <pre>{!userData ? userData : `${JSON.stringify(userData, 0, 9)}`}</pre>
                             <pre>{JSON.stringify(session,0,9)}</pre> */}
                             {children}
@@ -126,7 +135,7 @@ function Rootlayout({ children }) {
 
 
     {/* FOOTER */}
-                        <div className={`${ theme ? "bg-black" : "bg-white" } mb-16 md:mb-0 shadow-lg flex justify-center py-3 mt-16 bottom-0 w-full`}>
+                        <div className={`${ theme ? "bg-black" : "bg-white" } md:py-10 mb-16 md:mb-0 shadow-lg flex justify-center py-3 mt-16 bottom-0 w-full`}>
                             &copy;{(new Date).toString().slice(10,15)} Jaren Whitehouse
                         </div>
 
@@ -144,7 +153,7 @@ function Rootlayout({ children }) {
 }
 
 const SignOut = () => (
-    <button onClick={()=>signOut()} className='btn btn-outline'>Sign Out</button>
+    <button onClick={()=>signOut()} className='btn btn-outline rounded-lg'>Sign Out</button>
 )
 
 
@@ -152,6 +161,7 @@ const NavMenuItems = () => (
     <div className="md:pb-0 text-nowrap">
         <Link href="/"        className="no-underline text-lg md:text-lg hover:text-accent">HOME</Link > &nbsp;| &nbsp;
         <Link href="/about"   className="no-underline text-lg md:text-lg hover:text-accent">ABOUT</Link > &nbsp;| &nbsp;
+        <Link href="/projects"   className="no-underline text-lg md:text-lg hover:text-accent">PROJECTS</Link > &nbsp;| &nbsp;
         <Link href="/contact" className="no-underline text-lg md:text-lg hover:text-accent">CONTACT</Link >
     </div>
 )

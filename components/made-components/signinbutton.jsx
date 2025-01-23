@@ -7,7 +7,7 @@ import { SignInWithGithub, SignInWithGoogle } from "@components/auth/signin-butt
 export default function SignInButton() {
     return (
         <>
-            <button onClick={()=>document.getElementById('my_modal_1').showModal()} className="btn btn-primary btn-outline">
+            <button onClick={()=>document.getElementById('my_modal_1').showModal()} className="btn btn-primary btn-outline rounded-lg">
                 Sign In
             </button>
             <dialog id="my_modal_1" className="modal">

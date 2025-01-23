@@ -5,8 +5,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+    <>
+    <h1>projectffsf</h1>
+    <p>
+      this | that | the other thing
+    </p>
+    {children}
+    </>
   )
 }
