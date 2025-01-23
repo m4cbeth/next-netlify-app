@@ -1,19 +1,11 @@
-'use client'
-
-import { getUser, test } from "@/appServerActions/serveractions"
-import { useState } from "react"
-
 
 
 export default function Page({children}) {
 
-    const [data, setData] = useState()
 
     const handleClick = async() => {
         try {
-            const data = await getUser()
-            const users = data.json()
-            setData(users)            
+
         } catch(err) {
             console.error(err)
         }
@@ -24,7 +16,7 @@ export default function Page({children}) {
         <div>
             <h1>TESTING SERVER ACTIONS</h1>
             <h2>Get Client</h2>
-            <button onClick={test}  className="btn btn-primary">get users</button>
+            <button className="btn btn-primary">get users</button>
 
 
 
