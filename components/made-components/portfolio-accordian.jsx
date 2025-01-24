@@ -8,6 +8,7 @@ import { FaReact } from "react-icons/fa";
 import { FaNodeJs } from "react-icons/fa";
 import { FaGitAlt } from "react-icons/fa6";
 import { DiPostgresql } from "react-icons/di";
+import { SiPrisma } from "react-icons/si";
 import { SiExpress } from "react-icons/si";
 import { MdOutlineStarBorder } from "react-icons/md";
 import { MdOutlineStar } from "react-icons/md";
@@ -20,20 +21,21 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
-  
+const iconSize = 39
 export default function PortAcc() {
     const accordItems = [
-    {icon: <FaHtml5 className="transition-all" size={33}/>, name: "HTML", body: htmlBody()},
-    {icon: <FaJs className="transition-all" size={33}/>, name: "JavaScript",body:  jsBody()},
-    {icon: <FaCss3 className="transition-all" size={33}/>, name: "CSS", body: cssBody()},
-    {icon: <FaReact className="transition-all" size={33}/>, name: "React", body: "Body"},
-    {icon: <FaNodeJs className="transition-all" size={33}/>, name: "Node", body: "Body"},
-    {icon: <RiNextjsFill className="transition-all" size={33}/>, name: "Next.js", body: "Body"},
-    {icon: <RiTailwindCssFill className="transition-all" size={33}/>, name: "Tailwind CSS", body: "Body"},
-    {icon: <SiFirebase className="transition-all" size={33}/>, name: "Firebase",body:  fireBody()},
-    {icon: <FaGitAlt className="transition-all" size={33}/>, name: "Git", body: "Body"},
-    {icon: <SiExpress className="transition-all" size={33}/>, name: "Express", body: expressBody() },
-    {icon: <DiPostgresql className="transition-all" size={33}/>, name: "PostgreSQL", body: postgresBody()},
+    {icon: <FaHtml5 className="transition-all" size={iconSize}/>, name: "HTML", body: htmlBody()},
+    {icon: <FaJs className="transition-all" size={iconSize}/>, name: "JavaScript",body:  jsBody()},
+    {icon: <FaCss3 className="transition-all" size={iconSize}/>, name: "CSS", body: cssBody()},
+    {icon: <FaReact className="transition-all" size={iconSize}/>, name: "React", body: "Body"},
+    {icon: <FaNodeJs className="transition-all" size={iconSize}/>, name: "Node", body: "Body"},
+    {icon: <RiNextjsFill className="transition-all" size={iconSize}/>, name: "Next.js", body: "Body"},
+    {icon: <RiTailwindCssFill className="transition-all" size={iconSize}/>, name: "Tailwind CSS", body: "Body"},
+    {icon: <SiFirebase className="transition-all" size={iconSize}/>, name: "Firebase",body:  fireBody()},
+    {icon: <FaGitAlt className="transition-all" size={iconSize}/>, name: "Git", body: "Body"},
+    {icon: <SiExpress className="transition-all" size={iconSize}/>, name: "Express", body: expressBody() },
+    {icon: <DiPostgresql className="transition-all -translate-x-2" size={iconSize*1.4}/>, name: "PostgreSQL", body: postgresBody()},
+    {icon: <SiPrisma className="transition-all" size={iconSize}/>, name: "Prisma", body: "Prismabody"},
 ]
     return (
         <div className="text">

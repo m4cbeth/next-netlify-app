@@ -142,7 +142,7 @@ function Rootlayout({ children }) {
 
                     </div>
 {/* MOBILE BOTTOM NAV */}
-                    <div className='md:hidden py-5 sticky bottom-0 w-full bg-slate-950 z-[9999999999999] flex justify-center align-middle'>
+                    <div className={`${!theme && "text-white "}md:hidden py-5 sticky bottom-0 w-full bg-slate-950 z-[9999999999999] flex justify-center align-middle`}>
                         <NavMenuItems className="py-10" />
                     </div>
                 </body>
@@ -153,7 +153,7 @@ function Rootlayout({ children }) {
 }
 
 const SignOut = () => (
-    <button onClick={()=>signOut()} className='btn btn-outline rounded-lg'>Sign Out</button>
+    <button onClick={()=>signOut({ callbackUrl: '/' })} className='btn btn-outline rounded-lg'>Sign Out</button>
 )
 
 

@@ -43,8 +43,39 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           return true
         }
         return true
+      },
+
+      async signOut({ token }) {
+        if (token?.provider === 'google') {
+          try {
+            const oauth2Client = new Google.auth.OAuth2(
+              process.env.AUTH_GOOGLE_ID,
+              process.env.AUTH_GOOGLE_SECRET
+            );
+            oauth2Client.setCredentials({ access_token: token.accessToken });
+            await oauth2Client.revokeCredentials(); // Revoke the Google session
+            console.log("Google session revoked");
+          } catch (error) {
+            console.error("Error revoking Google session:", error);
+          }
+        }
+        if (token?.provider === 'github') {
+          try {
+            const oauth2Client = new GitHub.auth.OAuth2(
+              process.env.AUTH_GITHUB_ID,
+              process.env.AUTH_GITHUB_SECRET
+            );
+            oauth2Client.setCredentials({ access_token: token.accessToken });
+            await oauth2Client.revokeCredentials(); // Revoke the Google session
+            console.log("Google session revoked");
+          } catch (error) {
+            console.error("Error revoking Google session:", error);
+          }
+        }
+  
+        return true;
       }
-  }
+    }
 })
 
 /*
