@@ -6,6 +6,7 @@ import Instagram from "next-auth/providers/instagram"
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [GitHub, Google, Instagram],
+  trustHost: false,
   trustedHosts: [
     'https://jarenwhitehouse.com',
     'https://www.jarenwhitehouse.com', //
