@@ -3,7 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import HeroSection from '/components/made-components/hero-section';
-import { ThemeContext } from './layout';
+import { ThemeContext } from '@/app/clientApp';
 import { useContext } from 'react';
 import { useSession  } from 'next-auth/react';
 
@@ -30,7 +30,8 @@ export default function Page({ children }) {
                 <div data-aos="fade" data-aos-duration="3000">
                     <HeroSection />
                 </div>
-                <div className={`HEROSECTION text-white pb-10 min flex md:flex-row flex-col-reverse justify-center bg-gradient-to-tl to-indigo-500 ${!theme? "from-neutral-800":"from-violet-500"}`}>
+                {/* <div className={`HEROSECTION text-white pb-10 min flex md:flex-row flex-col-reverse justify-center bg-gradient-to-tl to-indigo-500 ${!theme? "from-neutral-800":"from-violet-500"}`}> */}
+                <div className={`HEROSECTION text-white pb-10 min flex md:flex-row flex-col-reverse justify-center bg-gradient-to-tl to-indigo-500 ${!true? "from-neutral-800":"from-violet-500"}`}>
                     
                         <div className=" flex-1 pl-2 md:pl-20 me:p-0 flex justify-center md:justify-end">
                             <div className="max-w-xl px-10">

@@ -1,49 +1,51 @@
-"use client"
 import { FaBluesky } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import {Table,TableBody,TableCaption,TableCell,TableHead,TableHeader,TableRow} from "@/components/ui/table"
 import Link from 'next/link'
-import { useState, useContext, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { useSession } from "next-auth/react";
-import { UserDBContext } from "../layout";
 
 export default function Contact() {
-    const formInitState = {
-        name:"",
-        email:"",
-        message:"",
-    }
-    const { data: session, status } = useSession()
-    const userDbData = useContext(UserDBContext)
-    const [formData, setFormData] = useState(formInitState)
-    const [leftMessages, setMessages] = useState([])
     
+    
+    // taking these out too; doing session style will mean:
+    // clean up this, remove any old things that make it a client     [ X ]
+    // that the messages will be fetched session side (prisma?)       [   ]
+    // the form will cause a refresh when submited (next.refresh()?)  [   ]
+    
+    // const formInitState = {
+    //     name:"",
+    //     email:"",
+    //     message:"",
+    // }
+    // const [formData, setFormData] = useState(formInitState)
+    // const [leftMessages, setMessages] = useState([])
+    
+    // trying to switch to auth v5 universal auth() and make this a server comp (even if this page is lowest need of ssr)
     // if user, get db messages
-    useEffect(() => {
-        if (!session?.user.email) return
-        const url = 'http://localhost:3001/getmessages'
-        const options = {
-            method: 'POST',
-            headers: {"Content-Type": "application/json", "Accept": "application/json"},
-            body: JSON.stringify({
-                email: session?.user.email
-            })
-        }
-        fetch(url, options) 
-        .then((res)=> res.json())
-        .then((data)=> {
-            if (Array.isArray(data.messages)) {
-                setMessages(data.messages)
-                console.log('set messages')
-            } else {
-                console.error('expected array got', data.messages)
-            }
-        })
-        .catch((err) => console.error(`tis nobller to ${err}`))
+    // useEffect(() => {
+    //     if (!session?.user.email) return
+    //     const url = 'http://localhost:3001/getmessages'
+    //     const options = {
+    //         method: 'POST',
+    //         headers: {"Content-Type": "application/json", "Accept": "application/json"},
+    //         body: JSON.stringify({
+    //             email: session?.user.email
+    //         })
+    //     }
+    //     fetch(url, options) 
+    //     .then((res)=> res.json())
+    //     .then((data)=> {
+    //         if (Array.isArray(data.messages)) {
+    //             setMessages(data.messages)
+    //             console.log('set messages')
+    //         } else {
+    //             console.error('expected array got', data.messages)
+    //         }
+    //     })
+    //     .catch((err) => console.error(`tis nobller to ${err}`))
 
-    }, [session])
+    // }, [session])
     
     const sumbitAction = () => {
         // const url = "http://localhost:3001/messages"
@@ -113,7 +115,8 @@ export default function Contact() {
                     <button type="submit">Send</button>
                 </form>
                 {
-                userDbData && (
+                // userDbData && (
+                true && (
                 <>
                 <h2 className="text-3xl font-thin">Previous Messages</h2>
                 {Array.isArray(leftMessages) && leftMessages.length > 0 ? (

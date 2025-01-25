@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { HeroHighlight, Highlight } from "/components/ui/hero-highlight";
 import { useContext } from "react";
-import { ThemeContext } from "@/app/layout";
+import { ThemeContext } from "@/app/clientApp";
 
 export default function HeroSection() {
   const theme = useContext(ThemeContext)
@@ -21,7 +21,8 @@ export default function HeroSection() {
           duration: 0.5,
           ease: [0.4, 0.0, 0.2, 1],
         }}
-        className={`text-2xl px-4 md:text-4xl lg:text-5xl font-bold max-w-4xl leading-relaxed ${ !theme ? "text-slate-900" : "text-slate-100"} lg:leading-snug text-center mx-auto`}>
+        // className={`text-2xl px-4 md:text-4xl lg:text-5xl font-bold max-w-4xl leading-relaxed ${ !theme ? "text-slate-900" : "text-slate-100"} lg:leading-snug text-center mx-auto`}>
+        className={`text-2xl px-4 md:text-4xl lg:text-5xl font-bold max-w-4xl leading-relaxed ${ !true ? "text-slate-900" : "text-slate-100"} lg:leading-snug text-center mx-auto`}>
         With bad code or copy,<br/>
         nothing&apos;s real. <br />
         Everything is far away. <br />
