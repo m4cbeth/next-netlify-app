@@ -11,7 +11,7 @@ export default function SignInButton() {
                 Sign In
             </button>
             <dialog id="my_modal_1" className="modal">
-                <div className="modal-box border">
+                <div className="modal-box border max-w-lg">
                     <h3 className="font-light text-3xl text-center">
                         sign(in || up)
                     </h3>

@@ -7,6 +7,7 @@ import prisma from '@/lib/prisma'
 
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  debug: true,
   adapter: PrismaAdapter(prisma),
   providers: [GitHub, Google, Instagram],
   trustHost: true,
@@ -14,71 +15,71 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     'https://jarenwhitehouse.com',
     'https://www.jarenwhitehouse.com',
   ],
-  callbacks: {
-      // async signIn({user, account, profile}) {
-      //   // SEE NOTE BELOW ON THIS POSTGRESS URL
-      //   const postgresurl = `${process.env.POSTGRES_URL}/api/users` // wtf is this??? this isn't how this works at all!!! Right????
-      //   const url = `${process.env.NODE_ENV === "development" ? "http://localhost:3001" : "https://expressapp-cjlk.onrender.com"}/signin`
-      //   // const url = "https://expressapp-cjlk.onrender.com/signin"
-      //   const options = {
-      //     method: "POST",
-      //       headers: {"Content-Type": "application/json"},
-      //       body: JSON.stringify({
-      //         email: user.email,
-      //         name: user.name,
-      //         account: account,
-      //         profile: profile,
-      //       })
-      //   }
-      //   try {
-      //     const response = await fetch(url, options)
-      //     if (!response.ok) {
-      //       console.error('failed to post to db')
-      //       return true
-      //     } else {
-      //       // const data = await response.json()
-      //       // console.log(data.user)
-      //       // ^^^ this is a great value to store into state somewhere! Global user context, alongside the auth context!
-      //       // but can't store to data here, this is outside react... Do this same fetch in a useSession!
-      //     }
-      //   } catch (err) {
-      //     console.error(err)
-      //     return true
-      //   }
-      //   return true
-      // },
+  // callbacks: {
+  //     // async signIn({user, account, profile}) {
+  //     //   // SEE NOTE BELOW ON THIS POSTGRESS URL
+  //     //   const postgresurl = `${process.env.POSTGRES_URL}/api/users` // wtf is this??? this isn't how this works at all!!! Right????
+  //     //   const url = `${process.env.NODE_ENV === "development" ? "http://localhost:3001" : "https://expressapp-cjlk.onrender.com"}/signin`
+  //     //   // const url = "https://expressapp-cjlk.onrender.com/signin"
+  //     //   const options = {
+  //     //     method: "POST",
+  //     //       headers: {"Content-Type": "application/json"},
+  //     //       body: JSON.stringify({
+  //     //         email: user.email,
+  //     //         name: user.name,
+  //     //         account: account,
+  //     //         profile: profile,
+  //     //       })
+  //     //   }
+  //     //   try {
+  //     //     const response = await fetch(url, options)
+  //     //     if (!response.ok) {
+  //     //       console.error('failed to post to db')
+  //     //       return true
+  //     //     } else {
+  //     //       // const data = await response.json()
+  //     //       // console.log(data.user)
+  //     //       // ^^^ this is a great value to store into state somewhere! Global user context, alongside the auth context!
+  //     //       // but can't store to data here, this is outside react... Do this same fetch in a useSession!
+  //     //     }
+  //     //   } catch (err) {
+  //     //     console.error(err)
+  //     //     return true
+  //     //   }
+  //     //   return true
+  //     // },
 
-      // async signOut({ token }) {
-      //   if (token?.provider === 'google') {
-      //     try {
-      //       const oauth2Client = new Google.auth.OAuth2(
-      //         process.env.AUTH_GOOGLE_ID,
-      //         process.env.AUTH_GOOGLE_SECRET
-      //       );
-      //       oauth2Client.setCredentials({ access_token: token.accessToken });
-      //       await oauth2Client.revokeCredentials(); // Revoke the Google session
-      //       console.log("Google session revoked");
-      //     } catch (error) {
-      //       console.error("Error revoking Google session:", error);
-      //     }
-      //   }
-      //   if (token?.provider === 'github') {
-      //     try {
-      //       const oauth2Client = new GitHub.auth.OAuth2(
-      //         process.env.AUTH_GITHUB_ID,
-      //         process.env.AUTH_GITHUB_SECRET
-      //       );
-      //       oauth2Client.setCredentials({ access_token: token.accessToken });
-      //       await oauth2Client.revokeCredentials(); // Revoke the Google session
-      //       console.log("Google session revoked");
-      //     } catch (error) {
-      //       console.error("Error revoking Google session:", error);
-      //     }
-      //   }
+  //     // async signOut({ token }) {
+  //     //   if (token?.provider === 'google') {
+  //     //     try {
+  //     //       const oauth2Client = new Google.auth.OAuth2(
+  //     //         process.env.AUTH_GOOGLE_ID,
+  //     //         process.env.AUTH_GOOGLE_SECRET
+  //     //       );
+  //     //       oauth2Client.setCredentials({ access_token: token.accessToken });
+  //     //       await oauth2Client.revokeCredentials(); // Revoke the Google session
+  //     //       console.log("Google session revoked");
+  //     //     } catch (error) {
+  //     //       console.error("Error revoking Google session:", error);
+  //     //     }
+  //     //   }
+  //     //   if (token?.provider === 'github') {
+  //     //     try {
+  //     //       const oauth2Client = new GitHub.auth.OAuth2(
+  //     //         process.env.AUTH_GITHUB_ID,
+  //     //         process.env.AUTH_GITHUB_SECRET
+  //     //       );
+  //     //       oauth2Client.setCredentials({ access_token: token.accessToken });
+  //     //       await oauth2Client.revokeCredentials(); // Revoke the Google session
+  //     //       console.log("Google session revoked");
+  //     //     } catch (error) {
+  //     //       console.error("Error revoking Google session:", error);
+  //     //     }
+  //     //   }
   
-      //   return true;
-      // }
-    }
+  //     //   return true;
+  //     // }
+  //   }
 })
 
 /*

@@ -3,7 +3,6 @@ import ClientRootLayout from './clientApp';
 
 import { auth } from 'auth'
 
-import { getUsers } from '@/components/actions/getusers';
 
 
 import { SessionProvider } from 'next-auth/react'

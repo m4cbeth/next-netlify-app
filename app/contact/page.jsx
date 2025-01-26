@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 
 import { revalidatePath } from 'next/cache'
-import prisma from '@/lib/prisma'
+// import prisma from '@/lib/prisma'
 
 
 
@@ -20,8 +20,8 @@ import { auth } from '@/auth'
 
 export default async function Contact() {
 
-    const something = await prisma.users.findMany()
-    console.log(something)
+    // const something = await prisma.users.findMany()
+    // console.log(something)
 
     const session = await auth()
     console.log(session)
