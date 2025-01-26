@@ -15,7 +15,7 @@ export default async function AuthAppWrap({ children }) {
     return (
         <SessionProvider>
             <ClientRootLayout session={session}>
-                <pre>{JSON.stringify(session)}</pre>
+                {/* <pre>{JSON.stringify(session)}</pre> */}
                 {children}
             </ClientRootLayout>
         </SessionProvider>

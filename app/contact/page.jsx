@@ -1,3 +1,4 @@
+'use server'
 import { FaBluesky } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
@@ -5,8 +6,28 @@ import {Table,TableBody,TableCaption,TableCell,TableHead,TableHeader,TableRow} f
 import Link from 'next/link'
 import { ToastContainer, toast } from "react-toastify";
 
-export default function Contact() {
-    
+
+import { revalidatePath } from 'next/cache'
+import prisma from '@/lib/prisma'
+
+
+
+
+import { auth } from '@/auth'
+
+
+
+
+export default async function Contact() {
+
+    const something = await prisma.users.findMany()
+    console.log(something)
+
+    const session = await auth()
+    console.log(session)
+
+    const leftMessages = []
+    console.log('HEHEHEHEHEHEHEHEHEHEHE')
     
     // taking these out too; doing session style will mean:
     // clean up this, remove any old things that make it a client     [ X ]
@@ -65,7 +86,7 @@ export default function Contact() {
             console.log("POST request successful. Response:", data);
         })
         .catch((err)=> console.error(`SUMBIT ACTION FAILED, err: ${err}`))
-        setFormData(formInitState)
+        // setFormData(formInitState)
         toast.dark('Thank you for your message', {
             position: "bottom-right",
             className: "z-[9999999999999999999999999999]"
@@ -73,18 +94,15 @@ export default function Contact() {
         })
 
     }
-    const handleChange = (e) => {
-        const { name, value } = e.target
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value,
-        }))
-    }
+
+
+
     return (
         <div>
             <title>JW: Contact</title>
             <ToastContainer />
             <div className="container mx-auto max-w-3xl p-5 rounded-xl">
+                <pre>{JSON.stringify(session,0,8)}</pre>
                 <h1>
                     Get in touch!
                 </h1>
@@ -105,44 +123,53 @@ export default function Contact() {
                 <h2 className="px-5 pt-5">
                     Or if you&apos;ve got a question, ask away!
                 </h2>
-                <form action={sumbitAction} className="flex flex-col gap-4 p-5">
+                <form action={"sumbitAction"} className="flex flex-col gap-4 p-5">
                     <label htmlFor="name">Name</label>
-                    <input value={formData.name} onChange={handleChange} type="text" id="name" name="name" className="bg-slate-900" />
+                    <input type="text" id="name" name="name" className="bg-slate-900" />
                     <label htmlFor="email">Email</label>
-                    <input value={formData.email} onChange={handleChange} type="email" id="email" name="email" className="bg-slate-900" />
+                    <input type="email" id="email" name="email" className="bg-slate-900" />
                     <label htmlFor="message">Message</label>
-                    <textarea value={formData.message} onChange={handleChange} id="message" name="message" rows={10} className="bg-slate-900"></textarea>
+                    <textarea id="message" name="message" rows={10} className="bg-slate-900"></textarea>
                     <button type="submit">Send</button>
                 </form>
                 {
                 // userDbData && (
                 true && (
                 <>
-                <h2 className="text-3xl font-thin">Previous Messages</h2>
-                {Array.isArray(leftMessages) && leftMessages.length > 0 ? (
-                <Table>
-                <TableCaption>Thank you for your messages!</TableCaption>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="w-[100px]">From</TableHead>
-                    <TableHead>Sent On</TableHead>
-                    <TableHead>Message</TableHead>
-                    <TableHead className="text-right">Status</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                {leftMessages.map((message, index) => (
-                  <TableRow key={index}>
-                    <TableCell className="font-medium">{message.name}</TableCell>
-                    <TableCell>{message.createdAt.slice(0,10)}</TableCell>
-                    <TableCell>{message.message}</TableCell>
-                    <TableCell className="text-right">received</TableCell>
-                  </TableRow>
-                ))}
-                </TableBody>
-                </Table>) : ("")}</>)
-                }
+                    {Array.isArray(leftMessages) && leftMessages.length > 0 ?
+                    <PrevMessages leftMessages={leftMessages}/> : ("")
+                    }
+                </>)}
             </div>
         </div>
     )
 }
+
+
+
+const PrevMessages = ({leftMessages}) => (
+    <div>
+    <h2 className="text-3xl font-thin">Previous Messages</h2>
+        <Table>
+        <TableCaption>Thank you for your messages!</TableCaption>
+        <TableHeader>
+            <TableRow>
+            <TableHead className="w-[100px]">From</TableHead>
+            <TableHead>Sent On</TableHead>
+            <TableHead>Message</TableHead>
+            <TableHead className="text-right">Status</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+        {leftMessages.map((message, index) => (
+            <TableRow key={index}>
+            <TableCell className="font-medium">{message.name}</TableCell>
+            <TableCell>{message.createdAt.slice(0,10)}</TableCell>
+            <TableCell>{message.message}</TableCell>
+            <TableCell className="text-right">received</TableCell>
+            </TableRow>
+        ))}
+        </TableBody>
+        </Table>
+    </div>
+)
