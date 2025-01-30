@@ -14,6 +14,12 @@ export default function About() {
                 <div>
                     <PortAcc className="size-10" />
                 </div>
+                <h2 className="text-center font-thin text-4xl pb-5">
+                    Deployment Experience
+                </h2>
+                <div>
+                    Vercel, Netlify, Render, Firebase, Heroku, Siteground, Aiven, 
+                </div>
             </section>
             
         </div>
